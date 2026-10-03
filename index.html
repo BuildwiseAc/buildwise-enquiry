@@ -34,7 +34,7 @@ body {
 }
 
 .brand-sub {
-  margin-top: 4px;
+  margin-top: 5px;
   color: #f58220;
   font-size: 12px;
   font-weight: 700;
@@ -47,9 +47,9 @@ body {
 
 .progress {
   height: 5px;
-  width: 0%;
+  width: 0;
   background: #f58220;
-  transition: width .3s ease;
+  transition: width .25s ease;
 }
 
 .app {
@@ -73,8 +73,14 @@ body {
 }
 
 @keyframes fade {
-  from { opacity: 0; transform: translateX(8px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .step {
@@ -101,7 +107,7 @@ h2 {
 .description {
   color: #666;
   line-height: 1.5;
-  margin-bottom: 25px;
+  margin: 0 0 25px;
 }
 
 input[type="text"] {
@@ -179,11 +185,6 @@ button {
   color: #333;
 }
 
-.next:disabled {
-  opacity: .35;
-  cursor: not-allowed;
-}
-
 .summary {
   background: white;
   border-radius: 10px;
@@ -194,8 +195,17 @@ button {
 }
 
 .tick {
-  font-size: 54px;
-  margin-bottom: 14px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #f58220;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .small {
@@ -229,325 +239,623 @@ button {
 <main class="app">
 
 <!-- WELCOME -->
+
 <section class="screen active" data-screen="welcome">
+
   <div class="step">Welcome</div>
 
   <h1>WELCOME TO BUILDWISE.</h1>
+
   <p class="description">
     Let's get things moving. We'll ask a few quick questions so we can understand your business.
   </p>
 
   <h2>What's your name?</h2>
 
-  <input id="customerName" type="text" placeholder="Enter your name">
+  <input
+    id="customerName"
+    type="text"
+    placeholder="Enter your name"
+    autocomplete="name"
+  >
 
   <div class="buttons">
     <button class="next" onclick="startJourney()">NEXT →</button>
   </div>
+
 </section>
 
 
 <!-- BUSINESS TYPE -->
+
 <section class="screen" data-screen="business">
+
   <div class="step">About you</div>
 
-  <h2>How do you operate?</h2>
+  <h2>You are a...</h2>
 
   <div class="options two">
-    <div class="option" onclick="chooseBusiness('Sole Trader',this)">
+
+    <div class="option"
+         onclick="chooseBusiness('Sole Trader',this)">
       Sole Trader
     </div>
 
-    <div class="option" onclick="chooseBusiness('Limited Company',this)">
+    <div class="option"
+         onclick="chooseBusiness('Limited Company',this)">
       Limited Company
     </div>
+
   </div>
 
   <div class="buttons">
     <button class="back" onclick="previous()">← BACK</button>
   </div>
+
 </section>
 
 
-<!-- ========================= -->
+<!-- ===================== -->
 <!-- SOLE TRADER -->
-<!-- ========================= -->
+<!-- ===================== -->
 
 <section class="screen" data-screen="st-cis-role">
+
   <div class="step">Sole Trader</div>
-  <h2>How do you work in construction?</h2>
+
+  <h2>How do you operate?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('cisRole','Contractor',this)">Contractor</div>
-    <div class="option" onclick="answer('cisRole','Subcontractor',this)">Subcontractor</div>
-    <div class="option" onclick="answer('cisRole','Both',this)">Both</div>
+
+    <div class="option"
+         onclick="answer('cisRole','Contractor',this)">
+      Contractor
+    </div>
+
+    <div class="option"
+         onclick="answer('cisRole','Subcontractor',this)">
+      Subcontractor
+    </div>
+
+    <div class="option"
+         onclick="answer('cisRole','Both',this)">
+      Both
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="st-cis">
+
   <div class="step">Sole Trader</div>
+
   <h2>Are you currently working under the CIS scheme?</h2>
 
-  <div class="options two">
-    <div class="option" onclick="answer('cisScheme','Yes',this)">Yes</div>
-    <div class="option" onclick="answer('cisScheme','No',this)">No</div>
-    <div class="option" onclick="answer('cisScheme','Not sure',this)">Not sure</div>
+  <div class="options">
+
+    <div class="option"
+         onclick="answer('cisScheme','Yes',this)">
+      Yes
+    </div>
+
+    <div class="option"
+         onclick="answer('cisScheme','No',this)">
+      No
+    </div>
+
+    <div class="option"
+         onclick="answer('cisScheme','Not sure',this)">
+      Not Sure
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="st-mtd">
+
   <div class="step">Sole Trader</div>
+
   <h2>Are you registered for Making Tax Digital for Income Tax?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('mtd','Yes',this)">Yes</div>
-    <div class="option" onclick="answer('mtd','No',this)">No</div>
-    <div class="option" onclick="answer('mtd','Not sure',this)">Not sure</div>
+
+    <div class="option"
+         onclick="answer('mtd','Yes',this)">
+      Yes
+    </div>
+
+    <div class="option"
+         onclick="answer('mtd','No',this)">
+      No
+    </div>
+
+    <div class="option"
+         onclick="answer('mtd','Not sure',this)">
+      Not Sure
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="st-software">
+
   <div class="step">Sole Trader</div>
+
   <h2>Do you currently use accounting software or a spreadsheet?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('software','Accounting software',this)">
+
+    <div class="option"
+         onclick="answer('software','Accounting software',this)">
       Accounting Software
     </div>
 
-    <div class="option" onclick="answer('software','Excel / Spreadsheet',this)">
+    <div class="option"
+         onclick="answer('software','Excel / Spreadsheet',this)">
       Excel / Spreadsheet
     </div>
 
-    <div class="option" onclick="answer('software','Neither',this)">
+    <div class="option"
+         onclick="answer('software','Neither',this)">
       Neither
     </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="st-vat">
+
   <div class="step">Sole Trader</div>
+
   <h2>Are you VAT registered?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('vat','Yes',this)">Yes</div>
-    <div class="option" onclick="answer('vat','No',this)">No</div>
-    <div class="option" onclick="answer('vat','Not sure',this)">Not sure</div>
+
+    <div class="option"
+         onclick="answer('vat','Yes',this)">
+      Yes
+    </div>
+
+    <div class="option"
+         onclick="answer('vat','No',this)">
+      No
+    </div>
+
+    <div class="option"
+         onclick="answer('vat','Not sure',this)">
+      Not Sure
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="st-records">
+
   <div class="step">Sole Trader</div>
+
   <h2>How do you currently keep track of your income and expenses?</h2>
 
   <p class="description">Select all that apply.</p>
 
   <div class="options multi" data-key="records">
-    <div class="option" onclick="toggleMulti(this,'Paper receipts / paperwork')">
+
+    <div class="option"
+         onclick="toggleMulti(this,'Paper receipts / paperwork')">
       Paper Receipts / Paperwork
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Excel / Spreadsheet')">
+    <div class="option"
+         onclick="toggleMulti(this,'Excel / Spreadsheet')">
       Excel / Spreadsheet
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Accounting software')">
+    <div class="option"
+         onclick="toggleMulti(this,'Accounting software')">
       Accounting Software
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Bank statements')">
+    <div class="option"
+         onclick="toggleMulti(this,'Bank statements')">
       Bank Statements
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'No regular records')">
+    <div class="option"
+         onclick="toggleMulti(this,'No regular records')">
       I Don't Keep Regular Records
     </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+    <button class="next" onclick="multiNext()">NEXT →</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="st-turnover">
+
   <div class="step">Sole Trader</div>
+
   <h2>What is your estimated annual turnover?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('turnover','Under £50,000',this)">
+
+    <div class="option"
+         onclick="answer('turnover','Under £50,000',this)">
       Under £50,000
     </div>
 
-    <div class="option" onclick="answer('turnover','£50,000 or more',this)">
-      £50,000 or more
+    <div class="option"
+         onclick="answer('turnover','£50,000 or more',this)">
+      £50,000 or More
     </div>
 
-    <div class="option" onclick="answer('turnover','Not sure',this)">
-      Not sure
+    <div class="option"
+         onclick="answer('turnover','Not sure',this)">
+      Not Sure
     </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="st-services">
+
   <div class="step">Nearly there</div>
+
   <h2>What would you like Buildwise to help you with?</h2>
 
   <p class="description">Select as many as you need.</p>
 
   <div class="options multi" data-key="services">
-    <div class="option" onclick="toggleMulti(this,'Tax Return')">Tax Return</div>
-    <div class="option" onclick="toggleMulti(this,'MTD Registration')">MTD Registration</div>
-    <div class="option" onclick="toggleMulti(this,'Quarterly MTD Submissions')">Quarterly MTD Submissions</div>
-    <div class="option" onclick="toggleMulti(this,'Digital Record Keeping')">Digital Record Keeping</div>
-    <div class="option" onclick="toggleMulti(this,'Invoice / Timesheet Preparation')">Invoice / Timesheet Preparation</div>
-    <div class="option" onclick="toggleMulti(this,'CIS Deduction Tracking')">CIS Deduction Tracking</div>
-    <div class="option" onclick="toggleMulti(this,'Retention Deduction Tracking')">Retention Deduction Tracking</div>
-    <div class="option" onclick="toggleMulti(this,'VAT Returns')">VAT Returns</div>
-    <div class="option" onclick="toggleMulti(this,'Domestic Reverse Charge')">Domestic Reverse Charge</div>
-    <div class="option" onclick="toggleMulti(this,'Expense Tracking')">Expense Tracking</div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Tax Return')">
+      Tax Return
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'MTD Registration')">
+      MTD Registration
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Quarterly MTD Submissions')">
+      Quarterly MTD Submissions
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Digital Record Keeping')">
+      Digital Record Keeping
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Invoice / Timesheet Preparation')">
+      Invoice / Timesheet Preparation
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'CIS Deduction Tracking')">
+      CIS Deduction Tracking
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Retention Deduction Tracking')">
+      Retention Deduction Tracking
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'VAT Returns')">
+      VAT Returns
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Domestic Reverse Charge')">
+      Domestic Reverse Charge
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Expense Tracking')">
+      Expense Tracking
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Not sure – I need advice')">
+      Not Sure – I Need Advice
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+    <button class="next" onclick="multiNext()">NEXT →</button>
+  </div>
+
 </section>
 
 
-<!-- ========================= -->
+<!-- ===================== -->
 <!-- LIMITED COMPANY -->
-<!-- ========================= -->
+<!-- ===================== -->
 
 <section class="screen" data-screen="ltd-role">
+
   <div class="step">Limited Company</div>
+
   <h2>How do you operate?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('cisRole','CIS Contractor',this)">CIS Contractor</div>
-    <div class="option" onclick="answer('cisRole','CIS Subcontractor',this)">CIS Subcontractor</div>
-    <div class="option" onclick="answer('cisRole','Both',this)">Both</div>
-    <div class="option" onclick="answer('cisRole','Not sure',this)">Not sure</div>
+
+    <div class="option"
+         onclick="answer('cisRole','CIS Contractor',this)">
+      CIS Contractor
+    </div>
+
+    <div class="option"
+         onclick="answer('cisRole','CIS Subcontractor',this)">
+      CIS Subcontractor
+    </div>
+
+    <div class="option"
+         onclick="answer('cisRole','Both',this)">
+      Both
+    </div>
+
+    <div class="option"
+         onclick="answer('cisRole','Not sure',this)">
+      Not Sure
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="ltd-hires">
+
   <div class="step">Limited Company</div>
 
   <h2>Do you hire other limited companies or sole traders to carry out work for you?</h2>
 
   <div class="options two">
-    <div class="option" onclick="answerHire('Yes',this)">Yes</div>
-    <div class="option" onclick="answerHire('No',this)">No</div>
+
+    <div class="option"
+         onclick="answerHire('Yes',this)">
+      Yes
+    </div>
+
+    <div class="option"
+         onclick="answerHire('No',this)">
+      No
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="ltd-verify">
+
   <div class="step">Limited Company</div>
 
   <h2>Do you verify subcontractors with HMRC before paying them?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('verification','Yes',this)">Yes</div>
-    <div class="option" onclick="answer('verification','No',this)">No</div>
-    <div class="option" onclick="answer('verification','Sometimes',this)">Sometimes</div>
-    <div class="option" onclick="answer('verification','Not sure',this)">Not sure</div>
+
+    <div class="option"
+         onclick="answer('verification','Yes',this)">
+      Yes
+    </div>
+
+    <div class="option"
+         onclick="answer('verification','No',this)">
+      No
+    </div>
+
+    <div class="option"
+         onclick="answer('verification','Sometimes',this)">
+      Sometimes
+    </div>
+
+    <div class="option"
+         onclick="answer('verification','Not sure',this)">
+      Not Sure
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="ltd-credit">
+
   <div class="step">Limited Company</div>
 
   <h2>Do you have credit accounts with suppliers?</h2>
 
   <div class="options two">
-    <div class="option" onclick="answer('supplierCredit','Yes',this)">Yes</div>
-    <div class="option" onclick="answer('supplierCredit','No',this)">No</div>
+
+    <div class="option"
+         onclick="answer('supplierCredit','Yes',this)">
+      Yes
+    </div>
+
+    <div class="option"
+         onclick="answer('supplierCredit','No',this)">
+      No
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="ltd-invoices">
+
   <div class="step">Limited Company</div>
 
   <h2>How do you currently manage your customer invoices?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('customerInvoices','Accounting software',this)">Accounting Software</div>
-    <div class="option" onclick="answer('customerInvoices','Excel / Spreadsheet',this)">Excel / Spreadsheet</div>
-    <div class="option" onclick="answer('customerInvoices','Word / PDF',this)">Word / PDF</div>
-    <div class="option" onclick="answer('customerInvoices','Paper / Manual',this)">Paper / Manual</div>
-    <div class="option" onclick="answer('customerInvoices','Someone else does it',this)">Someone Else Does It</div>
-    <div class="option" onclick="answer('customerInvoices','Other',this)">Other</div>
+
+    <div class="option"
+         onclick="answer('customerInvoices','Accounting software',this)">
+      Accounting Software
+    </div>
+
+    <div class="option"
+         onclick="answer('customerInvoices','Excel / Spreadsheet',this)">
+      Excel / Spreadsheet
+    </div>
+
+    <div class="option"
+         onclick="answer('customerInvoices','Word / PDF',this)">
+      Word / PDF
+    </div>
+
+    <div class="option"
+         onclick="answer('customerInvoices','Paper / Manual',this)">
+      Paper / Manual
+    </div>
+
+    <div class="option"
+         onclick="answer('customerInvoices','Someone else does it',this)">
+      Someone Else Does It
+    </div>
+
+    <div class="option"
+         onclick="answer('customerInvoices','Other',this)">
+      Other
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="ltd-vat">
+
   <div class="step">Limited Company</div>
 
   <h2>Is your company VAT registered?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('vat','Yes',this)">Yes</div>
-    <div class="option" onclick="answer('vat','No',this)">No</div>
-    <div class="option" onclick="answer('vat','Not sure',this)">Not sure</div>
+
+    <div class="option"
+         onclick="answer('vat','Yes',this)">
+      Yes
+    </div>
+
+    <div class="option"
+         onclick="answer('vat','No',this)">
+      No
+    </div>
+
+    <div class="option"
+         onclick="answer('vat','Not sure',this)">
+      Not Sure
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="ltd-turnover">
+
   <div class="step">Limited Company</div>
 
   <h2>What is your company's estimated annual turnover?</h2>
 
   <div class="options">
-    <div class="option" onclick="answer('turnover','Under £90,000',this)">
+
+    <div class="option"
+         onclick="answer('turnover','Under £90,000',this)">
       Under £90,000
     </div>
 
-    <div class="option" onclick="answer('turnover','£90,000 or more',this)">
-      £90,000 or more
+    <div class="option"
+         onclick="answer('turnover','£90,000 or more',this)">
+      £90,000 or More
     </div>
 
-    <div class="option" onclick="answer('turnover','Not sure',this)">
-      Not sure
+    <div class="option"
+         onclick="answer('turnover','Not sure',this)">
+      Not Sure
     </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="ltd-suppliers">
+
   <div class="step">Limited Company</div>
 
   <h2>How do you keep track of supplier invoices and payments?</h2>
@@ -555,19 +863,49 @@ button {
   <p class="description">Select all that apply.</p>
 
   <div class="options multi" data-key="supplierRecords">
-    <div class="option" onclick="toggleMulti(this,'Accounting software')">Accounting Software</div>
-    <div class="option" onclick="toggleMulti(this,'Excel / Spreadsheet')">Excel / Spreadsheet</div>
-    <div class="option" onclick="toggleMulti(this,'Paper invoices / receipts')">Paper Invoices / Receipts</div>
-    <div class="option" onclick="toggleMulti(this,'Bank statements')">Bank Statements</div>
-    <div class="option" onclick="toggleMulti(this,'Someone else manages it')">Someone Else Manages It</div>
-    <div class="option" onclick="toggleMulti(this,'No current system')">I Don't Currently Have a System</div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Accounting software')">
+      Accounting Software
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Excel / Spreadsheet')">
+      Excel / Spreadsheet
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Paper invoices / receipts')">
+      Paper Invoices / Receipts
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Bank statements')">
+      Bank Statements
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Someone else manages it')">
+      Someone Else Manages It
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'No current system')">
+      I Don't Currently Have a System
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+    <button class="next" onclick="multiNext()">NEXT →</button>
+  </div>
+
 </section>
 
 
 <section class="screen" data-screen="ltd-services">
+
   <div class="step">Nearly there</div>
 
   <h2>What would you like Buildwise to help you with?</h2>
@@ -575,23 +913,75 @@ button {
   <p class="description">Select as many as you need.</p>
 
   <div class="options multi" data-key="services">
-    <div class="option" onclick="toggleMulti(this,'Invoice Preparation')">Invoice Preparation</div>
-    <div class="option" onclick="toggleMulti(this,'Subcontractor Verification')">Subcontractor Verification</div>
-    <div class="option" onclick="toggleMulti(this,'Labour Payment Calculation')">Labour Payment Calculation</div>
-    <div class="option" onclick="toggleMulti(this,'Retention Tracking')">Retention Tracking</div>
-    <div class="option" onclick="toggleMulti(this,'CIS Return Submission')">CIS Return Submission</div>
-    <div class="option" onclick="toggleMulti(this,'CIS Suffered Submission')">CIS Suffered Submission</div>
-    <div class="option" onclick="toggleMulti(this,'Digital Record Keeping')">Digital Record Keeping</div>
-    <div class="option" onclick="toggleMulti(this,'VAT Returns')">VAT Returns</div>
-    <div class="option" onclick="toggleMulti(this,'Domestic Reverse Charge')">Domestic Reverse Charge</div>
-    <div class="option" onclick="toggleMulti(this,'Payroll')">Payroll</div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Invoice Preparation')">
+      Invoice Preparation
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Subcontractor Verification')">
+      Subcontractor Verification
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Labour Payment Calculation')">
+      Labour Payment Calculation
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Retention Tracking')">
+      Retention Tracking
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'CIS Return Submission')">
+      CIS Return Submission
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'CIS Suffered Submission')">
+      CIS Suffered Submission
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Digital Record Keeping')">
+      Digital Record Keeping
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'VAT Returns')">
+      VAT Returns
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Domestic Reverse Charge')">
+      Domestic Reverse Charge
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Payroll')">
+      Payroll
+    </div>
+
+    <div class="option"
+         onclick="toggleMulti(this,'Not sure – I need advice')">
+      Not Sure – I Need Advice
+    </div>
+
   </div>
 
-  <navButtons></navButtons>
+  <div class="buttons">
+    <button class="back" onclick="previous()">← BACK</button>
+    <button class="next" onclick="multiNext()">NEXT →</button>
+  </div>
+
 </section>
 
 
+<!-- ===================== -->
 <!-- FINISH -->
+<!-- ===================== -->
 
 <section class="screen" data-screen="finish">
 
@@ -606,12 +996,19 @@ button {
   <div class="summary" id="summary"></div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
-    <button class="next" onclick="sendWhatsApp()">CONTINUE TO WHATSAPP →</button>
+
+    <button class="back" onclick="previous()">
+      ← BACK
+    </button>
+
+    <button class="next" onclick="sendWhatsApp()">
+      CONTINUE TO WHATSAPP →
+    </button>
+
   </div>
 
   <div class="small">
-    You'll be able to review the message before sending it.
+    You'll be able to review your details before sending.
   </div>
 
 </section>
@@ -639,18 +1036,25 @@ function showScreen(name, addHistory = true) {
     historyStack.push(currentScreen);
   }
 
-  document.querySelectorAll(".screen").forEach(s =>
-    s.classList.remove("active")
-  );
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
 
-  const target = document.querySelector(`[data-screen="${name}"]`);
+  const target =
+    document.querySelector(`[data-screen="${name}"]`);
 
-  if (target) {
-    target.classList.add("active");
-    currentScreen = name;
-    window.scrollTo(0,0);
-    updateProgress();
-  }
+  if (!target) return;
+
+  target.classList.add("active");
+
+  currentScreen = name;
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  updateProgress();
 }
 
 
@@ -684,6 +1088,21 @@ function chooseBusiness(value, element) {
 
   data.business = value;
 
+  data.cisRole = "";
+  data.cisScheme = "";
+  data.mtd = "";
+  data.software = "";
+  data.vat = "";
+  data.records = [];
+  data.turnover = "";
+  data.services = [];
+
+  data.hiresSubcontractors = "";
+  data.verification = "";
+  data.supplierCredit = "";
+  data.customerInvoices = "";
+  data.supplierRecords = [];
+
   selectSingle(element);
 
   setTimeout(() => {
@@ -694,7 +1113,7 @@ function chooseBusiness(value, element) {
       showScreen("ltd-role");
     }
 
-  }, 180);
+  }, 150);
 }
 
 
@@ -704,7 +1123,9 @@ function answer(key, value, element) {
 
   selectSingle(element);
 
-  setTimeout(() => nextForCurrent(), 180);
+  setTimeout(() => {
+    nextForCurrent();
+  }, 150);
 }
 
 
@@ -717,13 +1138,17 @@ function answerHire(value, element) {
   setTimeout(() => {
 
     if (value === "Yes") {
+
       showScreen("ltd-verify");
+
     } else {
-      data.verification = "Not applicable";
+
+      data.verification = "";
+
       showScreen("ltd-credit");
     }
 
-  },180);
+  }, 150);
 }
 
 
@@ -731,7 +1156,9 @@ function selectSingle(element) {
 
   element.parentElement
     .querySelectorAll(".option")
-    .forEach(o => o.classList.remove("selected"));
+    .forEach(option => {
+      option.classList.remove("selected");
+    });
 
   element.classList.add("selected");
 }
@@ -749,7 +1176,7 @@ function toggleMulti(element, value) {
   if (data[key].includes(value)) {
 
     data[key] =
-      data[key].filter(v => v !== value);
+      data[key].filter(item => item !== value);
 
     element.classList.remove("selected");
 
@@ -779,6 +1206,7 @@ function nextForCurrent() {
     "ltd-invoices": "ltd-vat",
     "ltd-vat": "ltd-turnover",
     "ltd-turnover": "ltd-suppliers"
+
   };
 
   if (routes[currentScreen]) {
@@ -790,18 +1218,57 @@ function nextForCurrent() {
 function multiNext() {
 
   if (currentScreen === "st-records") {
+
+    if (!data.records || data.records.length === 0) {
+      alert("Please select at least one option.");
+      return;
+    }
+
     showScreen("st-turnover");
   }
 
+
   else if (currentScreen === "st-services") {
+
+    if (!data.services || data.services.length === 0) {
+
+      alert(
+        "Please select at least one option, or choose 'Not Sure – I Need Advice'."
+      );
+
+      return;
+    }
+
     finish();
   }
 
+
   else if (currentScreen === "ltd-suppliers") {
+
+    if (
+      !data.supplierRecords ||
+      data.supplierRecords.length === 0
+    ) {
+
+      alert("Please select at least one option.");
+      return;
+    }
+
     showScreen("ltd-services");
   }
 
+
   else if (currentScreen === "ltd-services") {
+
+    if (!data.services || data.services.length === 0) {
+
+      alert(
+        "Please select at least one option, or choose 'Not Sure – I Need Advice'."
+      );
+
+      return;
+    }
+
     finish();
   }
 }
@@ -812,10 +1279,17 @@ function finish() {
   document.getElementById("finishTitle").innerText =
     `YOU'RE ALL SET, ${data.name.toUpperCase()}.`;
 
+  const services =
+    data.services
+      .map(item => "• " + escapeHTML(item))
+      .join("<br>");
+
   document.getElementById("summary").innerHTML =
-    `<strong>${data.name}</strong><br>
-     ${data.business}<br>
-     Ready to continue with Buildwise Accounting.`;
+    `<strong>${escapeHTML(data.name)}</strong><br>
+     ${escapeHTML(data.business)}
+     <br><br>
+     <strong>Help requested:</strong><br>
+     ${services}`;
 
   showScreen("finish");
 }
@@ -823,55 +1297,73 @@ function finish() {
 
 function updateProgress() {
 
-  const total =
-    data.business === "Limited Company" ? 10 : 9;
+  let total = 10;
 
-  const progress =
+  if (data.business === "Limited Company") {
+    total = 11;
+  }
+
+  const amount =
     Math.min(
       ((historyStack.length + 1) / total) * 100,
       100
     );
 
   document.getElementById("progress").style.width =
-    progress + "%";
+    amount + "%";
 }
 
 
 function buildMessage() {
 
   let message =
-`NEW BUILDWISE ENQUIRY
+`*NEW BUILDWISE ENQUIRY*
 
-Name: ${data.name}
-Business: ${data.business}
+*Name:* ${data.name}
+*Business:* ${data.business}
 `;
 
   if (data.business === "Sole Trader") {
 
     message += `
-Construction Role: ${data.cisRole || ""}
-Working Under CIS: ${data.cisScheme || ""}
-MTD Registered: ${data.mtd || ""}
-Current Software: ${data.software || ""}
-VAT Registered: ${data.vat || ""}
-Record Keeping: ${(data.records || []).join(", ")}
-Annual Turnover: ${data.turnover || ""}
-Help Required: ${(data.services || []).join(", ")}
-`;
+*Construction Role:* ${data.cisRole || "Not provided"}
+*Working Under CIS:* ${data.cisScheme || "Not provided"}
+*MTD Registered:* ${data.mtd || "Not provided"}
+*Current Software:* ${data.software || "Not provided"}
+*VAT Registered:* ${data.vat || "Not provided"}
+*Record Keeping:* ${(data.records || []).join(", ") || "Not provided"}
+*Annual Turnover:* ${data.turnover || "Not provided"}
+
+*Help Required:*
+${(data.services || [])
+  .map(service => "• " + service)
+  .join("\n")}`;
 
   } else {
 
     message += `
-CIS Role: ${data.cisRole || ""}
-Uses Subcontractors: ${data.hiresSubcontractors || ""}
-HMRC Verification: ${data.verification || ""}
-Supplier Credit Accounts: ${data.supplierCredit || ""}
-Customer Invoices: ${data.customerInvoices || ""}
-VAT Registered: ${data.vat || ""}
-Annual Turnover: ${data.turnover || ""}
-Supplier Records: ${(data.supplierRecords || []).join(", ")}
-Help Required: ${(data.services || []).join(", ")}
-`;
+*CIS Role:* ${data.cisRole || "Not provided"}
+*Uses Subcontractors:* ${data.hiresSubcontractors || "Not provided"}`;
+
+    if (data.hiresSubcontractors === "Yes") {
+
+      message += `
+*HMRC Verification:* ${data.verification || "Not provided"}`;
+
+    }
+
+    message += `
+*Supplier Credit Accounts:* ${data.supplierCredit || "Not provided"}
+*Customer Invoices:* ${data.customerInvoices || "Not provided"}
+*VAT Registered:* ${data.vat || "Not provided"}
+*Annual Turnover:* ${data.turnover || "Not provided"}
+*Supplier Records:* ${(data.supplierRecords || []).join(", ") || "Not provided"}
+
+*Help Required:*
+${(data.services || [])
+  .map(service => "• " + service)
+  .join("\n")}`;
+
   }
 
   return message;
@@ -879,12 +1371,6 @@ Help Required: ${(data.services || []).join(", ")}
 
 
 function sendWhatsApp() {
-
-  /*
-     NEXT STEP:
-     We'll replace YOURNUMBER with the
-     Buildwise WhatsApp number.
-  */
 
   const phone = "447496560851";
 
@@ -900,16 +1386,14 @@ function sendWhatsApp() {
 }
 
 
-/* Add BACK + NEXT buttons to multi-select screens */
+function escapeHTML(text) {
 
-document.querySelectorAll("navButtons").forEach(el => {
+  const div = document.createElement("div");
 
-  el.outerHTML =
-  `<div class="buttons">
-     <button class="back" onclick="previous()">← BACK</button>
-     <button class="next" onclick="multiNext()">NEXT →</button>
-   </div>`;
-});
+  div.textContent = text;
+
+  return div.innerHTML;
+}
 
 </script>
 
