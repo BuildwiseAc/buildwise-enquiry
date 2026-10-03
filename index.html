@@ -3,60 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Buildwise Accounting | Get Started</title>
 
+<!-- Condensed construction-style heading font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-* { box-sizing: border-box; }
+
+:root {
+  --yellow: #ffcc00;
+  --yellow-dark: #d9ad00;
+  --black: #101010;
+  --panel: #191919;
+  --panel-2: #202020;
+  --border: #303030;
+  --white: #f7f7f7;
+  --grey: #999999;
+  --dark-grey: #666666;
+}
+
+/* ------------------------------
+   BASE
+------------------------------ */
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  background: var(--black);
+}
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f3f3f1;
-  color: #202020;
+  background: var(--black);
+  color: var(--white);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 
-.topbar {
-  height: 7px;
-  background: #f58220;
+button,
+input {
+  font-family: inherit;
 }
 
-.brand {
-  background: #202020;
-  color: white;
-  padding: 18px 20px;
-  text-align: center;
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+
+.site-header {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 22px 18px 0;
+}
+
+.brand-box {
+  background: var(--yellow);
+  color: #111;
+  padding: 20px 24px 18px;
 }
 
 .brand-name {
-  font-size: 20px;
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 31px;
+  line-height: 1;
   font-weight: 800;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.brand-sub {
-  margin-top: 5px;
-  color: #f58220;
-  font-size: 12px;
+.brand-tagline {
+  margin-top: 8px;
+  font-size: 15px;
   font-weight: 700;
+  color: #765f00;
+  letter-spacing: .2px;
 }
 
-.progress-wrap {
-  height: 5px;
-  background: #ddd;
+
+/* ------------------------------
+   PROGRESS
+------------------------------ */
+
+.progress-area {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 18px 18px 0;
 }
 
-.progress {
-  height: 5px;
-  width: 0;
-  background: #f58220;
-  transition: width .25s ease;
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
 }
+
+.progress-label {
+  color: #777;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.progress-number {
+  color: var(--yellow);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.progress-track {
+  height: 3px;
+  background: #292929;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 7%;
+  background: var(--yellow);
+  transition: width .3s ease;
+}
+
+
+/* ------------------------------
+   APP
+------------------------------ */
 
 .app {
-  max-width: 520px;
-  min-height: calc(100vh - 90px);
-  margin: auto;
-  padding: 32px 22px 30px;
+  width: 100%;
+  max-width: 620px;
+  min-height: calc(100vh - 155px);
+  margin: 0 auto;
+  padding: 38px 24px 38px;
   display: flex;
   flex-direction: column;
 }
@@ -64,1029 +148,2004 @@ body {
 .screen {
   display: none;
   flex: 1;
-  animation: fade .2s ease;
 }
 
 .screen.active {
   display: flex;
   flex-direction: column;
+  animation: screenIn .22s ease;
 }
 
-@keyframes fade {
+@keyframes screenIn {
   from {
     opacity: 0;
-    transform: translateX(8px);
+    transform: translateX(10px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-.step {
-  color: #f58220;
-  font-size: 12px;
-  font-weight: 800;
+
+/* ------------------------------
+   TYPOGRAPHY
+------------------------------ */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #727272;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 17px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: var(--yellow);
+  display: block;
+}
+
+h1,
+h2 {
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 h1 {
-  margin: 0 0 12px;
-  font-size: 31px;
-  line-height: 1.1;
+  font-size: clamp(52px, 11vw, 76px);
+  line-height: .95;
+  letter-spacing: .5px;
+  font-weight: 800;
 }
 
 h2 {
-  margin: 0 0 12px;
-  font-size: 27px;
-  line-height: 1.2;
+  font-size: clamp(38px, 8vw, 54px);
+  line-height: 1;
+  letter-spacing: .4px;
+  font-weight: 800;
 }
 
-.description {
-  color: #666;
-  line-height: 1.5;
-  margin: 0 0 25px;
+.yellow {
+  color: var(--yellow);
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 17px;
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--yellow);
+}
+
+.intro {
+  color: #a0a0a0;
   font-size: 17px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  background: white;
-  outline: none;
+  line-height: 1.65;
+  margin: 24px 0 0;
+  max-width: 500px;
 }
 
-input[type="text"]:focus {
-  border-color: #f58220;
+.question-help {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 15px 0 0;
 }
+
+
+/* ------------------------------
+   NAME INPUT
+------------------------------ */
+
+.input-area {
+  margin-top: 35px;
+}
+
+.input-label {
+  display: block;
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.name-input {
+  width: 100%;
+  background: var(--panel);
+  color: white;
+  border: 2px solid #3a3211;
+  border-radius: 13px;
+  padding: 20px 18px;
+  font-size: 18px;
+  outline: none;
+  transition: .2s ease;
+}
+
+.name-input::placeholder {
+  color: #555;
+}
+
+.name-input:focus {
+  border-color: var(--yellow);
+}
+
+
+/* ------------------------------
+   OPTIONS
+------------------------------ */
 
 .options {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 11px;
-  margin-top: 12px;
+  margin-top: 30px;
 }
 
-.two {
+.options.two {
   grid-template-columns: 1fr 1fr;
 }
 
 .option {
-  background: white;
-  border: 2px solid #ddd;
-  border-radius: 9px;
-  padding: 16px 12px;
-  font-size: 16px;
+  position: relative;
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--panel);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  color: #ddd;
+  padding: 17px 46px 17px 18px;
+  font-size: 15px;
+  line-height: 1.35;
   font-weight: 700;
   cursor: pointer;
-  text-align: center;
-  transition: .15s ease;
+  transition:
+    border-color .15s ease,
+    background .15s ease,
+    color .15s ease,
+    transform .1s ease;
+}
+
+.option::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #555;
+  border-radius: 50%;
 }
 
 .option:hover {
-  border-color: #f58220;
+  border-color: #5c501a;
+}
+
+.option:active {
+  transform: scale(.99);
 }
 
 .option.selected {
-  border-color: #f58220;
-  background: #fff3e8;
-  color: #c65c00;
+  background: #332b05;
+  border-color: var(--yellow);
+  color: var(--yellow);
 }
 
+.option.selected::after {
+  content: "✓";
+  width: 22px;
+  height: 22px;
+  border: 0;
+  background: var(--yellow);
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.multi .option::after {
+  border-radius: 4px;
+}
+
+
+/* ------------------------------
+   BUTTONS
+------------------------------ */
+
 .buttons {
-  margin-top: auto;
-  padding-top: 30px;
   display: flex;
   gap: 10px;
+  margin-top: auto;
+  padding-top: 38px;
 }
 
 button {
   border: 0;
-  border-radius: 8px;
-  padding: 16px;
-  font-size: 16px;
-  font-weight: 800;
   cursor: pointer;
 }
 
-.next {
+.primary-button {
   flex: 1;
-  background: #202020;
-  color: white;
-  border-bottom: 4px solid #f58220;
+  min-height: 70px;
+  background: var(--yellow);
+  color: #111;
+  border-radius: 13px;
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 23px;
+  letter-spacing: .7px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 16px 18px;
 }
 
-.back {
-  width: 90px;
-  background: #e5e5e5;
-  color: #333;
+.primary-button:active {
+  background: var(--yellow-dark);
 }
 
-.summary {
-  background: white;
-  border-radius: 10px;
-  padding: 18px;
-  line-height: 1.7;
-  margin-top: 10px;
-  border-left: 5px solid #f58220;
+.back-button {
+  min-width: 92px;
+  min-height: 70px;
+  background: var(--panel);
+  border: 1px solid #333;
+  color: #888;
+  border-radius: 13px;
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.tick {
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-  background: #f58220;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 38px;
-  font-weight: bold;
-  margin-bottom: 20px;
+.arrow {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  margin-left: 7px;
 }
 
-.small {
-  color: #777;
-  font-size: 12px;
+
+/* ------------------------------
+   FINISH
+------------------------------ */
+
+.finish-screen {
   text-align: center;
-  margin-top: 12px;
+  align-items: center;
 }
 
-@media(max-width:420px) {
-  .app { padding: 28px 18px 25px; }
-  h1 { font-size: 28px; }
-  h2 { font-size: 25px; }
+.big-tick {
+  color: var(--yellow);
+  font-size: 100px;
+  line-height: 1;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  transform: rotate(-7deg);
+  margin: 10px 0 24px;
 }
+
+.finish-screen h2 {
+  font-size: clamp(46px, 10vw, 65px);
+}
+
+.finish-text {
+  color: #999;
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 20px auto 25px;
+  max-width: 420px;
+}
+
+.summary-card {
+  width: 100%;
+  text-align: left;
+  background: var(--panel);
+  border: 1px solid #54470c;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 5px;
+}
+
+.summary-title {
+  color: #777;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+  margin-bottom: 13px;
+}
+
+.summary-name {
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.summary-business {
+  color: #999;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.summary-services {
+  border-top: 1px solid #303030;
+  margin-top: 16px;
+  padding-top: 15px;
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.finish-screen .buttons {
+  width: 100%;
+}
+
+.whatsapp-note {
+  color: #555;
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 13px auto 0;
+}
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+.footer {
+  text-align: center;
+  color: #3f3f3f;
+  font-size: 11px;
+  padding: 0 20px 25px;
+}
+
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 480px) {
+
+  .site-header {
+    padding: 16px 12px 0;
+  }
+
+  .brand-box {
+    padding: 17px 20px 16px;
+  }
+
+  .brand-name {
+    font-size: 27px;
+  }
+
+  .brand-tagline {
+    font-size: 14px;
+  }
+
+  .progress-area {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .app {
+    padding: 32px 20px 30px;
+  }
+
+  .options.two {
+    grid-template-columns: 1fr;
+  }
+
+  .option {
+    min-height: 62px;
+  }
+
+  .primary-button {
+    font-size: 21px;
+  }
+
+}
+
+
+/* Short phone screens */
+@media (max-height: 700px) {
+
+  .app {
+    padding-top: 25px;
+  }
+
+  .options {
+    margin-top: 22px;
+  }
+
+  .option {
+    min-height: 57px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .buttons {
+    padding-top: 26px;
+  }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<div class="topbar"></div>
 
-<header class="brand">
-  <div class="brand-name">BUILDWISE ACCOUNTING</div>
-  <div class="brand-sub">ACCOUNTING FOR CONSTRUCTION & TRADES</div>
+<!-- =========================================
+     BUILDWISE HEADER
+========================================= -->
+
+<header class="site-header">
+
+  <div class="brand-box">
+
+    <div class="brand-name">
+      BUILDWISE ACCOUNTING
+    </div>
+
+    <div class="brand-tagline">
+      Built for builders
+    </div>
+
+  </div>
+
 </header>
 
-<div class="progress-wrap">
-  <div class="progress" id="progress"></div>
+
+<!-- =========================================
+     PROGRESS
+========================================= -->
+
+<div class="progress-area">
+
+  <div class="progress-meta">
+
+    <div class="progress-label">
+      Your enquiry
+    </div>
+
+    <div class="progress-number" id="progressNumber">
+      1
+    </div>
+
+  </div>
+
+  <div class="progress-track">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
 </div>
+
+
+<!-- =========================================
+     APP
+========================================= -->
 
 <main class="app">
 
-<!-- WELCOME -->
+
+<!-- =========================================
+     WELCOME
+========================================= -->
 
 <section class="screen active" data-screen="welcome">
 
-  <div class="step">Welcome</div>
+  <div class="eyebrow">
+    Let's get started
+  </div>
 
-  <h1>WELCOME TO BUILDWISE.</h1>
+  <h1>
+    LET'S GET IT<br>
+    <span class="yellow">SORTED.</span>
+  </h1>
 
-  <p class="description">
-    Let's get things moving. We'll ask a few quick questions so we can understand your business.
+  <p class="intro">
+    A few quick questions so we can understand your business and how Buildwise can help.
   </p>
 
-  <h2>What's your name?</h2>
+  <div class="input-area">
 
-  <input
-    id="customerName"
-    type="text"
-    placeholder="Enter your name"
-    autocomplete="name"
-  >
+    <label class="input-label" for="customerName">
+      What's your name?
+    </label>
+
+    <input
+      class="name-input"
+      id="customerName"
+      type="text"
+      placeholder="e.g. John Smith"
+      autocomplete="name"
+    >
+
+  </div>
 
   <div class="buttons">
-    <button class="next" onclick="startJourney()">NEXT →</button>
+
+    <button
+      class="primary-button"
+      onclick="startJourney()"
+    >
+      LET'S GET STARTED
+      <span class="arrow">→</span>
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- BUSINESS TYPE -->
+<!-- =========================================
+     BUSINESS TYPE
+========================================= -->
 
 <section class="screen" data-screen="business">
 
-  <div class="step">About you</div>
+  <div class="eyebrow">
+    About your business
+  </div>
 
-  <h2>You are a...</h2>
+  <h2>
+    HOW DO YOU<br>
+    <span class="yellow">OPERATE?</span>
+  </h2>
+
+  <p class="question-help">
+    Choose the option that applies to you.
+  </p>
 
   <div class="options two">
 
-    <div class="option"
-         onclick="chooseBusiness('Sole Trader',this)">
+    <div
+      class="option"
+      onclick="chooseBusiness('Sole Trader', this)"
+    >
       Sole Trader
     </div>
 
-    <div class="option"
-         onclick="chooseBusiness('Limited Company',this)">
+    <div
+      class="option"
+      onclick="chooseBusiness('Limited Company', this)"
+    >
       Limited Company
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- ===================== -->
-<!-- SOLE TRADER -->
-<!-- ===================== -->
+<!-- =========================================
+     SOLE TRADER
+========================================= -->
+
+
+<!-- ROLE -->
 
 <section class="screen" data-screen="st-cis-role">
 
-  <div class="step">Sole Trader</div>
+  <div class="eyebrow">
+    Sole Trader
+  </div>
 
-  <h2>How do you operate?</h2>
+  <h2>
+    HOW DO YOU WORK<br>
+    IN <span class="yellow">CONSTRUCTION?</span>
+  </h2>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('cisRole','Contractor',this)">
+    <div
+      class="option"
+      onclick="answer('cisRole','Contractor',this)"
+    >
       Contractor
     </div>
 
-    <div class="option"
-         onclick="answer('cisRole','Subcontractor',this)">
+    <div
+      class="option"
+      onclick="answer('cisRole','Subcontractor',this)"
+    >
       Subcontractor
     </div>
 
-    <div class="option"
-         onclick="answer('cisRole','Both',this)">
+    <div
+      class="option"
+      onclick="answer('cisRole','Both',this)"
+    >
       Both
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
+
+<!-- CIS -->
 
 <section class="screen" data-screen="st-cis">
 
-  <div class="step">Sole Trader</div>
+  <div class="eyebrow">
+    Sole Trader
+  </div>
 
-  <h2>Are you currently working under the CIS scheme?</h2>
+  <h2>
+    ARE YOU WORKING<br>
+    UNDER <span class="yellow">CIS?</span>
+  </h2>
+
+  <p class="question-help">
+    Construction Industry Scheme.
+  </p>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('cisScheme','Yes',this)">
+    <div
+      class="option"
+      onclick="answer('cisScheme','Yes',this)"
+    >
       Yes
     </div>
 
-    <div class="option"
-         onclick="answer('cisScheme','No',this)">
+    <div
+      class="option"
+      onclick="answer('cisScheme','No',this)"
+    >
       No
     </div>
 
-    <div class="option"
-         onclick="answer('cisScheme','Not sure',this)">
+    <div
+      class="option"
+      onclick="answer('cisScheme','Not sure',this)"
+    >
       Not Sure
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
+
+<!-- MTD -->
 
 <section class="screen" data-screen="st-mtd">
 
-  <div class="step">Sole Trader</div>
+  <div class="eyebrow">
+    Sole Trader
+  </div>
 
-  <h2>Are you registered for Making Tax Digital for Income Tax?</h2>
+  <h2>
+    ARE YOU REGISTERED<br>
+    FOR <span class="yellow">MTD?</span>
+  </h2>
+
+  <p class="question-help">
+    Making Tax Digital for Income Tax.
+  </p>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('mtd','Yes',this)">
+    <div
+      class="option"
+      onclick="answer('mtd','Yes',this)"
+    >
       Yes
     </div>
 
-    <div class="option"
-         onclick="answer('mtd','No',this)">
+    <div
+      class="option"
+      onclick="answer('mtd','No',this)"
+    >
       No
     </div>
 
-    <div class="option"
-         onclick="answer('mtd','Not sure',this)">
+    <div
+      class="option"
+      onclick="answer('mtd','Not sure',this)"
+    >
       Not Sure
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- SOFTWARE -->
+
 <section class="screen" data-screen="st-software">
 
-  <div class="step">Sole Trader</div>
+  <div class="eyebrow">
+    Sole Trader
+  </div>
 
-  <h2>Do you currently use accounting software or a spreadsheet?</h2>
+  <h2>
+    HOW DO YOU KEEP<br>
+    YOUR <span class="yellow">ACCOUNTS?</span>
+  </h2>
+
+  <p class="question-help">
+    Do you currently use accounting software or a spreadsheet?
+  </p>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('software','Accounting software',this)">
+    <div
+      class="option"
+      onclick="answer('software','Accounting software',this)"
+    >
       Accounting Software
     </div>
 
-    <div class="option"
-         onclick="answer('software','Excel / Spreadsheet',this)">
+    <div
+      class="option"
+      onclick="answer('software','Excel / Spreadsheet',this)"
+    >
       Excel / Spreadsheet
     </div>
 
-    <div class="option"
-         onclick="answer('software','Neither',this)">
+    <div
+      class="option"
+      onclick="answer('software','Neither',this)"
+    >
       Neither
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- VAT -->
+
 <section class="screen" data-screen="st-vat">
 
-  <div class="step">Sole Trader</div>
+  <div class="eyebrow">
+    Sole Trader
+  </div>
 
-  <h2>Are you VAT registered?</h2>
+  <h2>
+    ARE YOU<br>
+    <span class="yellow">VAT REGISTERED?</span>
+  </h2>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('vat','Yes',this)">
+    <div
+      class="option"
+      onclick="answer('vat','Yes',this)"
+    >
       Yes
     </div>
 
-    <div class="option"
-         onclick="answer('vat','No',this)">
+    <div
+      class="option"
+      onclick="answer('vat','No',this)"
+    >
       No
     </div>
 
-    <div class="option"
-         onclick="answer('vat','Not sure',this)">
+    <div
+      class="option"
+      onclick="answer('vat','Not sure',this)"
+    >
       Not Sure
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- RECORD KEEPING -->
+
 <section class="screen" data-screen="st-records">
 
-  <div class="step">Sole Trader</div>
+  <div class="eyebrow">
+    Sole Trader
+  </div>
 
-  <h2>How do you currently keep track of your income and expenses?</h2>
+  <h2>
+    HOW DO YOU TRACK<br>
+    <span class="yellow">MONEY IN & OUT?</span>
+  </h2>
 
-  <p class="description">Select all that apply.</p>
+  <p class="question-help">
+    Select all that apply.
+  </p>
 
-  <div class="options multi" data-key="records">
+  <div
+    class="options multi"
+    data-key="records"
+  >
 
-    <div class="option"
-         onclick="toggleMulti(this,'Paper receipts / paperwork')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Paper receipts / paperwork')"
+    >
       Paper Receipts / Paperwork
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Excel / Spreadsheet')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Excel / Spreadsheet')"
+    >
       Excel / Spreadsheet
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Accounting software')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Accounting software')"
+    >
       Accounting Software
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Bank statements')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Bank statements')"
+    >
       Bank Statements
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'No regular records')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'No regular records')"
+    >
       I Don't Keep Regular Records
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
-    <button class="next" onclick="multiNext()">NEXT →</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
+    <button
+      class="primary-button"
+      onclick="multiNext()"
+    >
+      NEXT
+      <span class="arrow">→</span>
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- TURNOVER -->
+
 <section class="screen" data-screen="st-turnover">
 
-  <div class="step">Sole Trader</div>
+  <div class="eyebrow">
+    Sole Trader
+  </div>
 
-  <h2>What is your estimated annual turnover?</h2>
+  <h2>
+    WHAT'S YOUR ANNUAL<br>
+    <span class="yellow">TURNOVER?</span>
+  </h2>
+
+  <p class="question-help">
+    An estimate is fine.
+  </p>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('turnover','Under £50,000',this)">
+    <div
+      class="option"
+      onclick="answer('turnover','Under £50,000',this)"
+    >
       Under £50,000
     </div>
 
-    <div class="option"
-         onclick="answer('turnover','£50,000 or more',this)">
+    <div
+      class="option"
+      onclick="answer('turnover','£50,000 or more',this)"
+    >
       £50,000 or More
     </div>
 
-    <div class="option"
-         onclick="answer('turnover','Not sure',this)">
+    <div
+      class="option"
+      onclick="answer('turnover','Not sure',this)"
+    >
       Not Sure
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- SERVICES -->
+
 <section class="screen" data-screen="st-services">
 
-  <div class="step">Nearly there</div>
+  <div class="eyebrow">
+    Nearly there
+  </div>
 
-  <h2>What would you like Buildwise to help you with?</h2>
+  <h2>
+    WHAT CAN WE<br>
+    <span class="yellow">SORT FOR YOU?</span>
+  </h2>
 
-  <p class="description">Select as many as you need.</p>
+  <p class="question-help">
+    Select as many as you need.
+  </p>
 
-  <div class="options multi" data-key="services">
+  <div
+    class="options multi"
+    data-key="services"
+  >
 
-    <div class="option"
-         onclick="toggleMulti(this,'Tax Return')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Tax Return')"
+    >
       Tax Return
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'MTD Registration')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'MTD Registration')"
+    >
       MTD Registration
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Quarterly MTD Submissions')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Quarterly MTD Submissions')"
+    >
       Quarterly MTD Submissions
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Digital Record Keeping')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Digital Record Keeping')"
+    >
       Digital Record Keeping
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Invoice / Timesheet Preparation')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Invoice / Timesheet Preparation')"
+    >
       Invoice / Timesheet Preparation
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'CIS Deduction Tracking')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'CIS Deduction Tracking')"
+    >
       CIS Deduction Tracking
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Retention Deduction Tracking')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Retention Deduction Tracking')"
+    >
       Retention Deduction Tracking
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'VAT Returns')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'VAT Returns')"
+    >
       VAT Returns
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Domestic Reverse Charge')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Domestic Reverse Charge')"
+    >
       Domestic Reverse Charge
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Expense Tracking')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Expense Tracking')"
+    >
       Expense Tracking
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Not sure – I need advice')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Not sure – I need advice')"
+    >
       Not Sure – I Need Advice
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
-    <button class="next" onclick="multiNext()">NEXT →</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
+    <button
+      class="primary-button"
+      onclick="multiNext()"
+    >
+      FINISH
+      <span class="arrow">→</span>
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- ===================== -->
-<!-- LIMITED COMPANY -->
-<!-- ===================== -->
+<!-- =========================================
+     LIMITED COMPANY
+========================================= -->
+
+
+<!-- CIS ROLE -->
 
 <section class="screen" data-screen="ltd-role">
 
-  <div class="step">Limited Company</div>
+  <div class="eyebrow">
+    Limited Company
+  </div>
 
-  <h2>How do you operate?</h2>
+  <h2>
+    HOW DO YOU<br>
+    <span class="yellow">OPERATE?</span>
+  </h2>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('cisRole','CIS Contractor',this)">
+    <div
+      class="option"
+      onclick="answer('cisRole','CIS Contractor',this)"
+    >
       CIS Contractor
     </div>
 
-    <div class="option"
-         onclick="answer('cisRole','CIS Subcontractor',this)">
+    <div
+      class="option"
+      onclick="answer('cisRole','CIS Subcontractor',this)"
+    >
       CIS Subcontractor
     </div>
 
-    <div class="option"
-         onclick="answer('cisRole','Both',this)">
+    <div
+      class="option"
+      onclick="answer('cisRole','Both',this)"
+    >
       Both
     </div>
 
-    <div class="option"
-         onclick="answer('cisRole','Not sure',this)">
+    <div
+      class="option"
+      onclick="answer('cisRole','Not sure',this)"
+    >
       Not Sure
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
+
+<!-- HIRE SUBCONTRACTORS -->
 
 <section class="screen" data-screen="ltd-hires">
 
-  <div class="step">Limited Company</div>
+  <div class="eyebrow">
+    Limited Company
+  </div>
 
-  <h2>Do you hire other limited companies or sole traders to carry out work for you?</h2>
+  <h2>
+    DO YOU HIRE<br>
+    <span class="yellow">SUBCONTRACTORS?</span>
+  </h2>
+
+  <p class="question-help">
+    This includes other limited companies or sole traders carrying out work for you.
+  </p>
 
   <div class="options two">
 
-    <div class="option"
-         onclick="answerHire('Yes',this)">
+    <div
+      class="option"
+      onclick="answerHire('Yes',this)"
+    >
       Yes
     </div>
 
-    <div class="option"
-         onclick="answerHire('No',this)">
+    <div
+      class="option"
+      onclick="answerHire('No',this)"
+    >
       No
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- VERIFY -->
+
 <section class="screen" data-screen="ltd-verify">
 
-  <div class="step">Limited Company</div>
+  <div class="eyebrow">
+    Limited Company
+  </div>
 
-  <h2>Do you verify subcontractors with HMRC before paying them?</h2>
+  <h2>
+    DO YOU VERIFY THEM<br>
+    WITH <span class="yellow">HMRC?</span>
+  </h2>
+
+  <p class="question-help">
+    Before making subcontractor payments.
+  </p>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('verification','Yes',this)">
+    <div
+      class="option"
+      onclick="answer('verification','Yes',this)"
+    >
       Yes
     </div>
 
-    <div class="option"
-         onclick="answer('verification','No',this)">
+    <div
+      class="option"
+      onclick="answer('verification','No',this)"
+    >
       No
     </div>
 
-    <div class="option"
-         onclick="answer('verification','Sometimes',this)">
+    <div
+      class="option"
+      onclick="answer('verification','Sometimes',this)"
+    >
       Sometimes
     </div>
 
-    <div class="option"
-         onclick="answer('verification','Not sure',this)">
+    <div
+      class="option"
+      onclick="answer('verification','Not sure',this)"
+    >
       Not Sure
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- SUPPLIER CREDIT -->
+
 <section class="screen" data-screen="ltd-credit">
 
-  <div class="step">Limited Company</div>
+  <div class="eyebrow">
+    Limited Company
+  </div>
 
-  <h2>Do you have credit accounts with suppliers?</h2>
+  <h2>
+    SUPPLIER<br>
+    <span class="yellow">CREDIT ACCOUNTS?</span>
+  </h2>
+
+  <p class="question-help">
+    Do you have credit accounts with suppliers?
+  </p>
 
   <div class="options two">
 
-    <div class="option"
-         onclick="answer('supplierCredit','Yes',this)">
+    <div
+      class="option"
+      onclick="answer('supplierCredit','Yes',this)"
+    >
       Yes
     </div>
 
-    <div class="option"
-         onclick="answer('supplierCredit','No',this)">
+    <div
+      class="option"
+      onclick="answer('supplierCredit','No',this)"
+    >
       No
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- CUSTOMER INVOICES -->
+
 <section class="screen" data-screen="ltd-invoices">
 
-  <div class="step">Limited Company</div>
+  <div class="eyebrow">
+    Limited Company
+  </div>
 
-  <h2>How do you currently manage your customer invoices?</h2>
+  <h2>
+    HOW DO YOU HANDLE<br>
+    <span class="yellow">CUSTOMER INVOICES?</span>
+  </h2>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('customerInvoices','Accounting software',this)">
+    <div
+      class="option"
+      onclick="answer('customerInvoices','Accounting software',this)"
+    >
       Accounting Software
     </div>
 
-    <div class="option"
-         onclick="answer('customerInvoices','Excel / Spreadsheet',this)">
+    <div
+      class="option"
+      onclick="answer('customerInvoices','Excel / Spreadsheet',this)"
+    >
       Excel / Spreadsheet
     </div>
 
-    <div class="option"
-         onclick="answer('customerInvoices','Word / PDF',this)">
+    <div
+      class="option"
+      onclick="answer('customerInvoices','Word / PDF',this)"
+    >
       Word / PDF
     </div>
 
-    <div class="option"
-         onclick="answer('customerInvoices','Paper / Manual',this)">
+    <div
+      class="option"
+      onclick="answer('customerInvoices','Paper / Manual',this)"
+    >
       Paper / Manual
     </div>
 
-    <div class="option"
-         onclick="answer('customerInvoices','Someone else does it',this)">
+    <div
+      class="option"
+      onclick="answer('customerInvoices','Someone else does it',this)"
+    >
       Someone Else Does It
     </div>
 
-    <div class="option"
-         onclick="answer('customerInvoices','Other',this)">
+    <div
+      class="option"
+      onclick="answer('customerInvoices','Other',this)"
+    >
       Other
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
+
+<!-- VAT -->
 
 <section class="screen" data-screen="ltd-vat">
 
-  <div class="step">Limited Company</div>
+  <div class="eyebrow">
+    Limited Company
+  </div>
 
-  <h2>Is your company VAT registered?</h2>
+  <h2>
+    IS YOUR COMPANY<br>
+    <span class="yellow">VAT REGISTERED?</span>
+  </h2>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('vat','Yes',this)">
+    <div
+      class="option"
+      onclick="answer('vat','Yes',this)"
+    >
       Yes
     </div>
 
-    <div class="option"
-         onclick="answer('vat','No',this)">
+    <div
+      class="option"
+      onclick="answer('vat','No',this)"
+    >
       No
     </div>
 
-    <div class="option"
-         onclick="answer('vat','Not sure',this)">
+    <div
+      class="option"
+      onclick="answer('vat','Not sure',this)"
+    >
       Not Sure
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
+
+<!-- TURNOVER -->
 
 <section class="screen" data-screen="ltd-turnover">
 
-  <div class="step">Limited Company</div>
+  <div class="eyebrow">
+    Limited Company
+  </div>
 
-  <h2>What is your company's estimated annual turnover?</h2>
+  <h2>
+    COMPANY ANNUAL<br>
+    <span class="yellow">TURNOVER?</span>
+  </h2>
+
+  <p class="question-help">
+    An estimate is fine.
+  </p>
 
   <div class="options">
 
-    <div class="option"
-         onclick="answer('turnover','Under £90,000',this)">
+    <div
+      class="option"
+      onclick="answer('turnover','Under £90,000',this)"
+    >
       Under £90,000
     </div>
 
-    <div class="option"
-         onclick="answer('turnover','£90,000 or more',this)">
+    <div
+      class="option"
+      onclick="answer('turnover','£90,000 or more',this)"
+    >
       £90,000 or More
     </div>
 
-    <div class="option"
-         onclick="answer('turnover','Not sure',this)">
+    <div
+      class="option"
+      onclick="answer('turnover','Not sure',this)"
+    >
       Not Sure
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- SUPPLIER RECORDS -->
+
 <section class="screen" data-screen="ltd-suppliers">
 
-  <div class="step">Limited Company</div>
+  <div class="eyebrow">
+    Limited Company
+  </div>
 
-  <h2>How do you keep track of supplier invoices and payments?</h2>
+  <h2>
+    HOW DO YOU TRACK<br>
+    <span class="yellow">SUPPLIER BILLS?</span>
+  </h2>
 
-  <p class="description">Select all that apply.</p>
+  <p class="question-help">
+    Select all that apply.
+  </p>
 
-  <div class="options multi" data-key="supplierRecords">
+  <div
+    class="options multi"
+    data-key="supplierRecords"
+  >
 
-    <div class="option"
-         onclick="toggleMulti(this,'Accounting software')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Accounting software')"
+    >
       Accounting Software
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Excel / Spreadsheet')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Excel / Spreadsheet')"
+    >
       Excel / Spreadsheet
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Paper invoices / receipts')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Paper invoices / receipts')"
+    >
       Paper Invoices / Receipts
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Bank statements')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Bank statements')"
+    >
       Bank Statements
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Someone else manages it')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Someone else manages it')"
+    >
       Someone Else Manages It
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'No current system')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'No current system')"
+    >
       I Don't Currently Have a System
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
-    <button class="next" onclick="multiNext()">NEXT →</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
+    <button
+      class="primary-button"
+      onclick="multiNext()"
+    >
+      NEXT
+      <span class="arrow">→</span>
+    </button>
+
   </div>
 
 </section>
 
 
+<!-- SERVICES -->
+
 <section class="screen" data-screen="ltd-services">
 
-  <div class="step">Nearly there</div>
+  <div class="eyebrow">
+    Nearly there
+  </div>
 
-  <h2>What would you like Buildwise to help you with?</h2>
+  <h2>
+    WHAT CAN WE<br>
+    <span class="yellow">SORT FOR YOU?</span>
+  </h2>
 
-  <p class="description">Select as many as you need.</p>
+  <p class="question-help">
+    Select as many as you need.
+  </p>
 
-  <div class="options multi" data-key="services">
+  <div
+    class="options multi"
+    data-key="services"
+  >
 
-    <div class="option"
-         onclick="toggleMulti(this,'Invoice Preparation')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Invoice Preparation')"
+    >
       Invoice Preparation
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Subcontractor Verification')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Subcontractor Verification')"
+    >
       Subcontractor Verification
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Labour Payment Calculation')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Labour Payment Calculation')"
+    >
       Labour Payment Calculation
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Retention Tracking')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Retention Tracking')"
+    >
       Retention Tracking
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'CIS Return Submission')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'CIS Return Submission')"
+    >
       CIS Return Submission
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'CIS Suffered Submission')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'CIS Suffered Submission')"
+    >
       CIS Suffered Submission
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Digital Record Keeping')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Digital Record Keeping')"
+    >
       Digital Record Keeping
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'VAT Returns')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'VAT Returns')"
+    >
       VAT Returns
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Domestic Reverse Charge')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Domestic Reverse Charge')"
+    >
       Domestic Reverse Charge
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Payroll')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Payroll')"
+    >
       Payroll
     </div>
 
-    <div class="option"
-         onclick="toggleMulti(this,'Not sure – I need advice')">
+    <div
+      class="option"
+      onclick="toggleMulti(this,'Not sure – I need advice')"
+    >
       Not Sure – I Need Advice
     </div>
 
   </div>
 
   <div class="buttons">
-    <button class="back" onclick="previous()">← BACK</button>
-    <button class="next" onclick="multiNext()">NEXT →</button>
+
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
+    </button>
+
+    <button
+      class="primary-button"
+      onclick="multiNext()"
+    >
+      FINISH
+      <span class="arrow">→</span>
+    </button>
+
   </div>
 
 </section>
 
 
-<!-- ===================== -->
-<!-- FINISH -->
-<!-- ===================== -->
+<!-- =========================================
+     FINISH
+========================================= -->
 
-<section class="screen" data-screen="finish">
+<section
+  class="screen finish-screen"
+  data-screen="finish"
+>
 
-  <div class="tick">✓</div>
+  <div class="big-tick">
+    ✓
+  </div>
 
-  <h1 id="finishTitle">YOU'RE ALL SET.</h1>
+  <h2 id="finishTitle">
+    YOU'RE ALL SET.
+  </h2>
 
-  <p class="description">
-    We've got the information we need to get things moving.
+  <p class="finish-text">
+    We've got the information we need. Continue to WhatsApp and send your details directly to Buildwise.
   </p>
 
-  <div class="summary" id="summary"></div>
+  <div class="summary-card">
+
+    <div class="summary-title">
+      Your enquiry
+    </div>
+
+    <div
+      class="summary-name"
+      id="summaryName"
+    ></div>
+
+    <div
+      class="summary-business"
+      id="summaryBusiness"
+    ></div>
+
+    <div
+      class="summary-services"
+      id="summaryServices"
+    ></div>
+
+  </div>
 
   <div class="buttons">
 
-    <button class="back" onclick="previous()">
-      ← BACK
+    <button
+      class="back-button"
+      onclick="previous()"
+    >
+      ← Back
     </button>
 
-    <button class="next" onclick="sendWhatsApp()">
-      CONTINUE TO WHATSAPP →
+    <button
+      class="primary-button"
+      onclick="sendWhatsApp()"
+    >
+      CONTINUE TO WHATSAPP
+      <span class="arrow">→</span>
     </button>
 
   </div>
 
-  <div class="small">
-    You'll be able to review your details before sending.
+  <div class="whatsapp-note">
+    Your answers will be prepared as a WhatsApp message. You can review them before sending.
   </div>
 
 </section>
+
 
 </main>
 
 
+<footer class="footer">
+  BUILT FOR BUILDERS • BUILDWISE ACCOUNTING
+</footer>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
 <script>
 
+const WHATSAPP_NUMBER = "447496560851";
+
+
 const data = {
+
   name: "",
   business: "",
+
+  cisRole: "",
+  cisScheme: "",
+  mtd: "",
+  software: "",
+  vat: "",
   records: [],
+  turnover: "",
+
+  hiresSubcontractors: "",
+  verification: "",
+  supplierCredit: "",
+  customerInvoices: "",
   supplierRecords: [],
+
   services: []
+
 };
 
+
 let historyStack = [];
+
 let currentScreen = "welcome";
 
 
+/* -----------------------------------------
+   SHOW SCREEN
+----------------------------------------- */
+
 function showScreen(name, addHistory = true) {
 
-  if (addHistory && currentScreen !== name) {
+  if (
+    addHistory &&
+    currentScreen !== name
+  ) {
+
     historyStack.push(currentScreen);
+
   }
 
-  document.querySelectorAll(".screen").forEach(screen => {
-    screen.classList.remove("active");
-  });
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(screen => {
+
+      screen.classList.remove("active");
+
+    });
+
 
   const target =
-    document.querySelector(`[data-screen="${name}"]`);
+    document.querySelector(
+      `[data-screen="${name}"]`
+    );
+
 
   if (!target) return;
+
 
   target.classList.add("active");
 
   currentScreen = name;
+
 
   window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
 
+
   updateProgress();
+
 }
 
+
+/* -----------------------------------------
+   BACK
+----------------------------------------- */
 
 function previous() {
 
-  const previousScreen = historyStack.pop();
+  const previousScreen =
+    historyStack.pop();
+
 
   if (previousScreen) {
-    showScreen(previousScreen, false);
+
+    showScreen(
+      previousScreen,
+      false
+    );
+
   }
+
 }
 
 
+/* -----------------------------------------
+   START
+----------------------------------------- */
+
 function startJourney() {
 
+  const input =
+    document.getElementById(
+      "customerName"
+    );
+
+
   const name =
-    document.getElementById("customerName").value.trim();
+    input.value.trim();
+
 
   if (!name) {
-    alert("Please enter your name.");
+
+    alert(
+      "Please enter your name."
+    );
+
+    input.focus();
+
     return;
+
   }
+
 
   data.name = name;
 
   showScreen("business");
+
 }
 
 
-function chooseBusiness(value, element) {
+/* Enter key on name field */
+
+document
+  .getElementById("customerName")
+  .addEventListener(
+    "keydown",
+    function(event) {
+
+      if (event.key === "Enter") {
+
+        startJourney();
+
+      }
+
+    }
+  );
+
+
+/* -----------------------------------------
+   BUSINESS TYPE
+----------------------------------------- */
+
+function chooseBusiness(
+  value,
+  element
+) {
 
   data.business = value;
+
+
+  /* Reset answers if business type changes */
 
   data.cisRole = "";
   data.cisScheme = "";
@@ -1095,7 +2154,6 @@ function chooseBusiness(value, element) {
   data.vat = "";
   data.records = [];
   data.turnover = "";
-  data.services = [];
 
   data.hiresSubcontractors = "";
   data.verification = "";
@@ -1103,297 +2161,707 @@ function chooseBusiness(value, element) {
   data.customerInvoices = "";
   data.supplierRecords = [];
 
+  data.services = [];
+
+
+  clearSelections();
+
   selectSingle(element);
+
 
   setTimeout(() => {
 
-    if (value === "Sole Trader") {
-      showScreen("st-cis-role");
-    } else {
-      showScreen("ltd-role");
+    if (
+      value === "Sole Trader"
+    ) {
+
+      showScreen(
+        "st-cis-role"
+      );
+
     }
 
-  }, 150);
+    else {
+
+      showScreen(
+        "ltd-role"
+      );
+
+    }
+
+  }, 170);
+
 }
 
 
-function answer(key, value, element) {
+/* -----------------------------------------
+   SINGLE ANSWER
+----------------------------------------- */
+
+function answer(
+  key,
+  value,
+  element
+) {
 
   data[key] = value;
 
   selectSingle(element);
 
+
   setTimeout(() => {
+
     nextForCurrent();
-  }, 150);
+
+  }, 170);
+
 }
 
 
-function answerHire(value, element) {
+/* -----------------------------------------
+   LTD SUBCONTRACTOR CONDITION
+----------------------------------------- */
 
-  data.hiresSubcontractors = value;
+function answerHire(
+  value,
+  element
+) {
+
+  data.hiresSubcontractors =
+    value;
+
 
   selectSingle(element);
 
+
   setTimeout(() => {
 
-    if (value === "Yes") {
+    if (
+      value === "Yes"
+    ) {
 
-      showScreen("ltd-verify");
+      showScreen(
+        "ltd-verify"
+      );
 
-    } else {
+    }
+
+    else {
 
       data.verification = "";
 
-      showScreen("ltd-credit");
+      showScreen(
+        "ltd-credit"
+      );
+
     }
 
-  }, 150);
+  }, 170);
+
 }
 
+
+/* -----------------------------------------
+   SELECT SINGLE
+----------------------------------------- */
 
 function selectSingle(element) {
 
-  element.parentElement
+  const container =
+    element.parentElement;
+
+
+  container
     .querySelectorAll(".option")
     .forEach(option => {
-      option.classList.remove("selected");
+
+      option.classList.remove(
+        "selected"
+      );
+
     });
 
-  element.classList.add("selected");
+
+  element.classList.add(
+    "selected"
+  );
+
 }
 
 
-function toggleMulti(element, value) {
+/* -----------------------------------------
+   MULTI SELECT
+----------------------------------------- */
 
-  const container = element.parentElement;
-  const key = container.dataset.key;
+function toggleMulti(
+  element,
+  value
+) {
 
-  if (!Array.isArray(data[key])) {
+  const container =
+    element.parentElement;
+
+
+  const key =
+    container.dataset.key;
+
+
+  if (
+    !Array.isArray(data[key])
+  ) {
+
     data[key] = [];
+
   }
 
-  if (data[key].includes(value)) {
+
+  if (
+    data[key].includes(value)
+  ) {
 
     data[key] =
-      data[key].filter(item => item !== value);
+      data[key].filter(
+        item => item !== value
+      );
 
-    element.classList.remove("selected");
 
-  } else {
+    element.classList.remove(
+      "selected"
+    );
+
+  }
+
+  else {
 
     data[key].push(value);
 
-    element.classList.add("selected");
+
+    element.classList.add(
+      "selected"
+    );
+
   }
+
 }
 
+
+/* -----------------------------------------
+   CLEAR VISUAL SELECTIONS
+----------------------------------------- */
+
+function clearSelections() {
+
+  document
+    .querySelectorAll(".option")
+    .forEach(option => {
+
+      option.classList.remove(
+        "selected"
+      );
+
+    });
+
+}
+
+
+/* -----------------------------------------
+   ROUTING
+----------------------------------------- */
 
 function nextForCurrent() {
 
   const routes = {
 
-    "st-cis-role": "st-cis",
-    "st-cis": "st-mtd",
-    "st-mtd": "st-software",
-    "st-software": "st-vat",
-    "st-vat": "st-records",
-    "st-turnover": "st-services",
+    /* Sole Trader */
 
-    "ltd-role": "ltd-hires",
-    "ltd-verify": "ltd-credit",
-    "ltd-credit": "ltd-invoices",
-    "ltd-invoices": "ltd-vat",
-    "ltd-vat": "ltd-turnover",
-    "ltd-turnover": "ltd-suppliers"
+    "st-cis-role":
+      "st-cis",
+
+    "st-cis":
+      "st-mtd",
+
+    "st-mtd":
+      "st-software",
+
+    "st-software":
+      "st-vat",
+
+    "st-vat":
+      "st-records",
+
+    "st-turnover":
+      "st-services",
+
+
+    /* Limited Company */
+
+    "ltd-role":
+      "ltd-hires",
+
+    "ltd-verify":
+      "ltd-credit",
+
+    "ltd-credit":
+      "ltd-invoices",
+
+    "ltd-invoices":
+      "ltd-vat",
+
+    "ltd-vat":
+      "ltd-turnover",
+
+    "ltd-turnover":
+      "ltd-suppliers"
 
   };
 
-  if (routes[currentScreen]) {
-    showScreen(routes[currentScreen]);
+
+  if (
+    routes[currentScreen]
+  ) {
+
+    showScreen(
+      routes[currentScreen]
+    );
+
   }
+
 }
 
+
+/* -----------------------------------------
+   MULTI SELECT NEXT
+----------------------------------------- */
 
 function multiNext() {
 
-  if (currentScreen === "st-records") {
 
-    if (!data.records || data.records.length === 0) {
-      alert("Please select at least one option.");
-      return;
-    }
+  /* Sole Trader records */
 
-    showScreen("st-turnover");
-  }
+  if (
+    currentScreen ===
+    "st-records"
+  ) {
 
-
-  else if (currentScreen === "st-services") {
-
-    if (!data.services || data.services.length === 0) {
+    if (
+      data.records.length === 0
+    ) {
 
       alert(
-        "Please select at least one option, or choose 'Not Sure – I Need Advice'."
+        "Please select at least one option."
       );
 
       return;
+
     }
 
-    finish();
+
+    showScreen(
+      "st-turnover"
+    );
+
+    return;
+
   }
 
 
-  else if (currentScreen === "ltd-suppliers") {
+  /* Sole Trader services */
+
+  if (
+    currentScreen ===
+    "st-services"
+  ) {
 
     if (
-      !data.supplierRecords ||
+      data.services.length === 0
+    ) {
+
+      alert(
+        "Please select at least one service, or choose 'Not Sure – I Need Advice'."
+      );
+
+      return;
+
+    }
+
+
+    finish();
+
+    return;
+
+  }
+
+
+  /* Ltd supplier records */
+
+  if (
+    currentScreen ===
+    "ltd-suppliers"
+  ) {
+
+    if (
       data.supplierRecords.length === 0
     ) {
 
-      alert("Please select at least one option.");
-      return;
-    }
-
-    showScreen("ltd-services");
-  }
-
-
-  else if (currentScreen === "ltd-services") {
-
-    if (!data.services || data.services.length === 0) {
-
       alert(
-        "Please select at least one option, or choose 'Not Sure – I Need Advice'."
+        "Please select at least one option."
       );
 
       return;
+
     }
 
-    finish();
+
+    showScreen(
+      "ltd-services"
+    );
+
+    return;
+
   }
+
+
+  /* Ltd services */
+
+  if (
+    currentScreen ===
+    "ltd-services"
+  ) {
+
+    if (
+      data.services.length === 0
+    ) {
+
+      alert(
+        "Please select at least one service, or choose 'Not Sure – I Need Advice'."
+      );
+
+      return;
+
+    }
+
+
+    finish();
+
+  }
+
 }
 
+
+/* -----------------------------------------
+   FINISH SCREEN
+----------------------------------------- */
 
 function finish() {
 
-  document.getElementById("finishTitle").innerText =
-    `YOU'RE ALL SET, ${data.name.toUpperCase()}.`;
+  document
+    .getElementById(
+      "finishTitle"
+    )
+    .textContent =
+      "YOU'RE ALL SET, " +
+      data.name.toUpperCase() +
+      ".";
+
+
+  document
+    .getElementById(
+      "summaryName"
+    )
+    .textContent =
+      data.name;
+
+
+  document
+    .getElementById(
+      "summaryBusiness"
+    )
+    .textContent =
+      data.business;
+
 
   const services =
     data.services
-      .map(item => "• " + escapeHTML(item))
+      .map(
+        service =>
+          "✓ " + service
+      )
       .join("<br>");
 
-  document.getElementById("summary").innerHTML =
-    `<strong>${escapeHTML(data.name)}</strong><br>
-     ${escapeHTML(data.business)}
-     <br><br>
-     <strong>Help requested:</strong><br>
-     ${services}`;
 
-  showScreen("finish");
+  document
+    .getElementById(
+      "summaryServices"
+    )
+    .innerHTML =
+      "<strong style='color:#ffcc00'>HELP REQUIRED</strong><br><br>" +
+      services;
+
+
+  showScreen(
+    "finish"
+  );
+
 }
 
+
+/* -----------------------------------------
+   PROGRESS
+----------------------------------------- */
 
 function updateProgress() {
 
-  let total = 10;
+  const soleTraderOrder = [
 
-  if (data.business === "Limited Company") {
-    total = 11;
-  }
+    "welcome",
+    "business",
+    "st-cis-role",
+    "st-cis",
+    "st-mtd",
+    "st-software",
+    "st-vat",
+    "st-records",
+    "st-turnover",
+    "st-services",
+    "finish"
 
-  const amount =
-    Math.min(
-      ((historyStack.length + 1) / total) * 100,
-      100
+  ];
+
+
+  let limitedOrder = [
+
+    "welcome",
+    "business",
+    "ltd-role",
+    "ltd-hires"
+
+  ];
+
+
+  if (
+    data.hiresSubcontractors ===
+    "Yes"
+  ) {
+
+    limitedOrder.push(
+      "ltd-verify"
     );
 
-  document.getElementById("progress").style.width =
-    amount + "%";
+  }
+
+
+  limitedOrder =
+    limitedOrder.concat([
+
+      "ltd-credit",
+      "ltd-invoices",
+      "ltd-vat",
+      "ltd-turnover",
+      "ltd-suppliers",
+      "ltd-services",
+      "finish"
+
+    ]);
+
+
+  let order;
+
+
+  if (
+    data.business ===
+    "Limited Company"
+  ) {
+
+    order = limitedOrder;
+
+  }
+
+  else if (
+    data.business ===
+    "Sole Trader"
+  ) {
+
+    order = soleTraderOrder;
+
+  }
+
+  else {
+
+    order = [
+      "welcome",
+      "business"
+    ];
+
+  }
+
+
+  let index =
+    order.indexOf(
+      currentScreen
+    );
+
+
+  if (index < 0) {
+
+    index = 0;
+
+  }
+
+
+  let percent =
+    ((index + 1) /
+      order.length) *
+    100;
+
+
+  if (
+    currentScreen ===
+    "finish"
+  ) {
+
+    percent = 100;
+
+  }
+
+
+  document
+    .getElementById(
+      "progressBar"
+    )
+    .style.width =
+      percent + "%";
+
+
+  document
+    .getElementById(
+      "progressNumber"
+    )
+    .textContent =
+      Math.round(percent) + "%";
+
 }
 
 
+/* -----------------------------------------
+   WHATSAPP MESSAGE
+----------------------------------------- */
+
 function buildMessage() {
+
 
   let message =
 `*NEW BUILDWISE ENQUIRY*
 
 *Name:* ${data.name}
-*Business:* ${data.business}
-`;
+*Business:* ${data.business}`;
 
-  if (data.business === "Sole Trader") {
+
+  /* -------------------------
+     SOLE TRADER
+  ------------------------- */
+
+  if (
+    data.business ===
+    "Sole Trader"
+  ) {
 
     message += `
-*Construction Role:* ${data.cisRole || "Not provided"}
-*Working Under CIS:* ${data.cisScheme || "Not provided"}
-*MTD Registered:* ${data.mtd || "Not provided"}
-*Current Software:* ${data.software || "Not provided"}
-*VAT Registered:* ${data.vat || "Not provided"}
-*Record Keeping:* ${(data.records || []).join(", ") || "Not provided"}
-*Annual Turnover:* ${data.turnover || "Not provided"}
+
+*Construction Role:* ${data.cisRole}
+*Working Under CIS:* ${data.cisScheme}
+*MTD Registered:* ${data.mtd}
+*Current Software:* ${data.software}
+*VAT Registered:* ${data.vat}
+*Record Keeping:* ${data.records.join(", ")}
+*Annual Turnover:* ${data.turnover}
 
 *Help Required:*
-${(data.services || [])
-  .map(service => "• " + service)
-  .join("\n")}`;
-
-  } else {
-
-    message += `
-*CIS Role:* ${data.cisRole || "Not provided"}
-*Uses Subcontractors:* ${data.hiresSubcontractors || "Not provided"}`;
-
-    if (data.hiresSubcontractors === "Yes") {
-
-      message += `
-*HMRC Verification:* ${data.verification || "Not provided"}`;
-
-    }
-
-    message += `
-*Supplier Credit Accounts:* ${data.supplierCredit || "Not provided"}
-*Customer Invoices:* ${data.customerInvoices || "Not provided"}
-*VAT Registered:* ${data.vat || "Not provided"}
-*Annual Turnover:* ${data.turnover || "Not provided"}
-*Supplier Records:* ${(data.supplierRecords || []).join(", ") || "Not provided"}
-
-*Help Required:*
-${(data.services || [])
-  .map(service => "• " + service)
+${data.services
+  .map(
+    service =>
+      "• " + service
+  )
   .join("\n")}`;
 
   }
 
+
+  /* -------------------------
+     LIMITED COMPANY
+  ------------------------- */
+
+  else {
+
+    message += `
+
+*CIS Role:* ${data.cisRole}
+*Uses Subcontractors:* ${data.hiresSubcontractors}`;
+
+
+    if (
+      data.hiresSubcontractors ===
+      "Yes"
+    ) {
+
+      message += `
+*HMRC Verification:* ${data.verification}`;
+
+    }
+
+
+    message += `
+*Supplier Credit Accounts:* ${data.supplierCredit}
+*Customer Invoices:* ${data.customerInvoices}
+*VAT Registered:* ${data.vat}
+*Annual Turnover:* ${data.turnover}
+*Supplier Records:* ${data.supplierRecords.join(", ")}
+
+*Help Required:*
+${data.services
+  .map(
+    service =>
+      "• " + service
+  )
+  .join("\n")}`;
+
+  }
+
+
   return message;
+
 }
 
+
+/* -----------------------------------------
+   OPEN WHATSAPP
+----------------------------------------- */
 
 function sendWhatsApp() {
 
-  const phone = "447496560851";
+  const message =
+    buildMessage();
 
-  const message = buildMessage();
 
-  const url =
+  const whatsappURL =
     "https://wa.me/" +
-    phone +
+    WHATSAPP_NUMBER +
     "?text=" +
-    encodeURIComponent(message);
+    encodeURIComponent(
+      message
+    );
 
-  window.location.href = url;
+
+  window.location.href =
+    whatsappURL;
+
 }
 
 
-function escapeHTML(text) {
+/* -----------------------------------------
+   INITIALISE
+----------------------------------------- */
 
-  const div = document.createElement("div");
-
-  div.textContent = text;
-
-  return div.innerHTML;
-}
+updateProgress();
 
 </script>
 
