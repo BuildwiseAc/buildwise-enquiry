@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buildwise Accounting | Get Started</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f2;
+      color: #202020;
+    }
+
+    .header {
+      background: #202020;
+      color: white;
+      padding: 32px 22px;
+      text-align: center;
+      border-bottom: 5px solid #f58220;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      color: #f58220;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 30px 20px 50px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .intro {
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .question {
+      margin-bottom: 28px;
+    }
+
+    .question-title {
+      display: block;
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 16px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .option {
+      border: 2px solid #ddd;
+      border-radius: 7px;
+      padding: 13px 8px;
+      text-align: center;
+      cursor: pointer;
+      background: white;
+      font-weight: bold;
+    }
+
+    .option input {
+      display: none;
+    }
+
+    .option:has(input:checked) {
+      border-color: #f58220;
+      background: #fff3e9;
+      color: #c85e00;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: #202020;
+      color: white;
+      padding: 17px;
+      border-radius: 7px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      border-bottom: 4px solid #f58220;
+    }
+
+    .small {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>BUILDWISE ACCOUNTING</h1>
+    <p>Accounting for Construction & Trades</p>
+  </div>
+
+  <div class="container">
+
+    <h2>LET'S GET THINGS MOVING.</h2>
+
+    <p class="intro">
+      Answer a few quick questions and we'll take it from there.
+    </p>
+
+    <form id="enquiryForm">
+
+      <div class="question">
+        <label class="question-title">Your name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="question">
+        <span class="question-title">How do you operate?</span>
+
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="business" value="Sole Trader" required>
+            Sole Trader
+          </label>
+
+          <label class="option">
+            <input type="radio" name="business" value="Limited Company">
+            Limited Company
+          </label>
+        </div>
+      </div>
+
+      <div class="question">
+        <span class="question-title">Are you VAT registered?</span>
+
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="vat" value="Yes" required>
+            Yes
+          </label>
+
+          <label class="option">
+            <input type="radio" name="vat" value="No">
+            No
+          </label>
+        </div>
+      </div>
+
+      <div class="question">
+        <span class="question-title">Approximate annual turnover</span>
+
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="turnover" value="Under £30k" required>
+            Under £30k
+          </label>
+
+          <label class="option">
+            <input type="radio" name="turnover" value="£30k - £50k">
+            £30k–£50k
+          </label>
+
+          <label class="option">
+            <input type="radio" name="turnover" value="£50k - £90k">
+            £50k–£90k
+          </label>
+
+          <label class="option">
+            <input type="radio" name="turnover" value="Over £90k">
+            Over £90k
+          </label>
+        </div>
+      </div>
+
+      <div class="question">
+        <span class="question-title">What do you need help with?</span>
+
+        <div class="services">
+
+          <label class="option">
+            <input type="checkbox" name="service" value="Tax Return">
+            Tax Return
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="service" value="MTD">
+            MTD
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="service" value="CIS">
+            CIS
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="service" value="VAT">
+            VAT
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="service" value="Bookkeeping">
+            Bookkeeping
+          </label>
+
+          <label class="option">
+            <input type="checkbox" name="service" value="Payroll">
+            Payroll
+          </label>
+
+        </div>
+      </div>
+
+      <button type="submit">
+        CONTINUE ON WHATSAPP →
+      </button>
+
+      <div class="small">
+        Your details will be prepared as a WhatsApp message.
+      </div>
+
+    </form>
+
+  </div>
+
+<script>
+document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+
+  const business =
+    document.querySelector('input[name="business"]:checked').value;
+
+  const vat =
+    document.querySelector('input[name="vat"]:checked').value;
+
+  const turnover =
+    document.querySelector('input[name="turnover"]:checked').value;
+
+  const services =
+    Array.from(document.querySelectorAll('input[name="service"]:checked'))
+    .map(item => item.value)
+    .join(", ");
+
+  const message =
+`NEW BUILDWISE ENQUIRY
+
+Name: ${name}
+Business: ${business}
+VAT Registered: ${vat}
+Turnover: ${turnover}
+Help Needed: ${services || "Not specified"}`;
+
+  /* We will add your Buildwise WhatsApp number here next */
+
+  const phone = "YOURNUMBER";
+
+  const url =
+    "https://wa.me/" +
+    phone +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.location.href = url;
+
+});
+</script>
+
+</body>
+</html>
