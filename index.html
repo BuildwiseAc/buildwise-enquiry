@@ -94,12 +94,6 @@ header{
   display:flex;
 }
 
-/*
-Normal question pages are deliberately
-split into fixed areas so questions do
-not jump around vertically.
-*/
-
 .question-screen{
   flex-direction:column;
   padding:0 24px;
@@ -226,18 +220,11 @@ not jump around vertically.
 }
 
 .start-screen h1{
-  margin:0;
+  margin:0 0 30px;
   font-size:29px;
   line-height:1.2;
   font-weight:700;
   letter-spacing:-.6px;
-}
-
-.start-screen p{
-  margin:12px 0 30px;
-  color:var(--grey);
-  font-size:15px;
-  line-height:1.55;
 }
 
 .name-label{
@@ -432,17 +419,15 @@ not jump around vertically.
 
 <main id="app">
 
-<!-- START -->
+<!-- =====================================
+     START
+===================================== -->
 
 <section class="screen start-screen active" data-screen="start">
 
   <div class="start-content">
 
-    <h1>Let's see how we can help.</h1>
-
-    <p>
-      Answer a few quick questions and we'll get your enquiry ready for Buildwise.
-    </p>
+    <h1>Tell us about your business.</h1>
 
     <label class="name-label" for="name">
       What's your name?
@@ -465,7 +450,9 @@ not jump around vertically.
 </section>
 
 
-<!-- BUSINESS TYPE -->
+<!-- =====================================
+     BUSINESS TYPE
+===================================== -->
 
 <section class="screen question-screen" data-screen="business">
 
@@ -474,6 +461,7 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
       <div class="option"
@@ -487,6 +475,7 @@ not jump around vertically.
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -496,9 +485,9 @@ not jump around vertically.
 </section>
 
 
-<!-- ===================================== -->
-<!-- SOLE TRADER -->
-<!-- ===================================== -->
+<!-- =====================================
+     SOLE TRADER
+===================================== -->
 
 <section class="screen question-screen" data-screen="st-cis">
 
@@ -507,6 +496,7 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
       <div class="option" onclick="answer('cis','Yes',this)">
@@ -522,6 +512,7 @@ not jump around vertically.
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -538,25 +529,31 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
-      <div class="option" onclick="answer('records','Accounting software',this)">
+      <div class="option"
+        onclick="answer('records','Accounting software',this)">
         Accounting software
       </div>
 
-      <div class="option" onclick="answer('records','Excel / Spreadsheet',this)">
+      <div class="option"
+        onclick="answer('records','Excel / Spreadsheet',this)">
         Excel / Spreadsheet
       </div>
 
-      <div class="option" onclick="answer('records','Paperwork / receipts',this)">
+      <div class="option"
+        onclick="answer('records','Paperwork / receipts',this)">
         Paperwork / receipts
       </div>
 
-      <div class="option" onclick="answer('records','No regular system',this)">
+      <div class="option"
+        onclick="answer('records','No regular system',this)">
         I don't have a regular system
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -569,25 +566,30 @@ not jump around vertically.
 <section class="screen question-screen" data-screen="st-income">
 
   <div class="question-area">
-    <h1>Roughly how much is your annual self-employed income?</h1>
+    <h1>Roughly what is your annual turnover?</h1>
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
-      <div class="option" onclick="answer('income','£50,000 or less',this)">
-        £50,000 or less
+      <div class="option"
+        onclick="answer('income','Under £50,000',this)">
+        Under £50,000
       </div>
 
-      <div class="option" onclick="answer('income','Over £50,000',this)">
-        Over £50,000
+      <div class="option"
+        onclick="answer('income','£50,000 or more',this)">
+        £50,000 or more
       </div>
 
-      <div class="option" onclick="answer('income','Not sure',this)">
+      <div class="option"
+        onclick="answer('income','Not sure',this)">
         Not sure
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -604,21 +606,26 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
-      <div class="option" onclick="answer('mtd','Yes',this)">
+      <div class="option"
+        onclick="answer('mtd','Yes',this)">
         Yes
       </div>
 
-      <div class="option" onclick="answer('mtd','No',this)">
+      <div class="option"
+        onclick="answer('mtd','No',this)">
         No
       </div>
 
-      <div class="option" onclick="answer('mtd','Not sure',this)">
+      <div class="option"
+        onclick="answer('mtd','Not sure',this)">
         Not sure
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -635,21 +642,26 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
-      <div class="option" onclick="answer('vat','Yes',this)">
+      <div class="option"
+        onclick="answer('vat','Yes',this)">
         Yes
       </div>
 
-      <div class="option" onclick="answer('vat','No',this)">
+      <div class="option"
+        onclick="answer('vat','No',this)">
         No
       </div>
 
-      <div class="option" onclick="answer('vat','Not sure',this)">
+      <div class="option"
+        onclick="answer('vat','Not sure',this)">
         Not sure
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -665,49 +677,60 @@ not jump around vertically.
 
   <div class="hint">Choose all that apply.</div>
 
-  <div class="options multi" data-key="services">
+  <div class="options multi">
 
-    <div class="option" onclick="toggleMulti(this,'Tax Return')">
+    <div class="option"
+      onclick="toggleMulti(this,'Tax Return')">
       Tax return
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'MTD Registration')">
+    <div class="option"
+      onclick="toggleMulti(this,'MTD Registration')">
       MTD registration
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Quarterly MTD Submissions')">
+    <div class="option"
+      onclick="toggleMulti(this,'Quarterly MTD Submissions')">
       Quarterly MTD submissions
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Digital Record Keeping')">
+    <div class="option"
+      onclick="toggleMulti(this,'Digital Record Keeping')">
       Digital record keeping
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Invoice / Timesheet Preparation')">
+    <div class="option"
+      onclick="toggleMulti(this,'Invoice / Timesheet Preparation')">
       Invoice / timesheet preparation
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'CIS Deduction Tracking')">
+    <div class="option"
+      onclick="toggleMulti(this,'CIS Deduction Tracking')">
       CIS deduction tracking
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Retention Deduction Tracking')">
+    <div class="option"
+      onclick="toggleMulti(this,'Retention Deduction Tracking')">
       Retention deduction tracking
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'VAT Returns')">
+    <div class="option"
+      onclick="toggleMulti(this,'VAT Returns')">
       VAT returns
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Domestic Reverse Charge')">
+    <div class="option"
+      onclick="toggleMulti(this,'Domestic Reverse Charge')">
       Domestic reverse charge
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Expense Tracking')">
+    <div class="option"
+      onclick="toggleMulti(this,'Expense Tracking')">
       Expense tracking
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Not sure – I need advice')">
+    <div class="option"
+      onclick="toggleMulti(this,'Not sure – I need advice')">
       Not sure — I need advice
     </div>
 
@@ -726,9 +749,9 @@ not jump around vertically.
 </section>
 
 
-<!-- ===================================== -->
-<!-- LIMITED COMPANY -->
-<!-- ===================================== -->
+<!-- =====================================
+     LIMITED COMPANY
+===================================== -->
 
 <section class="screen question-screen" data-screen="ltd-subs">
 
@@ -737,17 +760,21 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
-      <div class="option" onclick="answerSubs('Yes',this)">
+      <div class="option"
+        onclick="answerSubs('Yes',this)">
         Yes
       </div>
 
-      <div class="option" onclick="answerSubs('No',this)">
+      <div class="option"
+        onclick="answerSubs('No',this)">
         No
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -764,25 +791,31 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
-      <div class="option" onclick="answer('verification','Yes',this)">
+      <div class="option"
+        onclick="answer('verification','Yes',this)">
         Yes
       </div>
 
-      <div class="option" onclick="answer('verification','No',this)">
+      <div class="option"
+        onclick="answer('verification','No',this)">
         No
       </div>
 
-      <div class="option" onclick="answer('verification','Sometimes',this)">
+      <div class="option"
+        onclick="answer('verification','Sometimes',this)">
         Sometimes
       </div>
 
-      <div class="option" onclick="answer('verification','Not sure',this)">
+      <div class="option"
+        onclick="answer('verification','Not sure',this)">
         Not sure
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -799,29 +832,36 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
-      <div class="option" onclick="answer('records','Accounting software',this)">
+      <div class="option"
+        onclick="answer('records','Accounting software',this)">
         Accounting software
       </div>
 
-      <div class="option" onclick="answer('records','Excel / Spreadsheet',this)">
+      <div class="option"
+        onclick="answer('records','Excel / Spreadsheet',this)">
         Excel / Spreadsheet
       </div>
 
-      <div class="option" onclick="answer('records','Paperwork / manual',this)">
+      <div class="option"
+        onclick="answer('records','Paperwork / manual',this)">
         Paperwork / manual
       </div>
 
-      <div class="option" onclick="answer('records','Someone else manages them',this)">
+      <div class="option"
+        onclick="answer('records','Someone else manages them',this)">
         Someone else manages them
       </div>
 
-      <div class="option" onclick="answer('records','No regular system',this)">
+      <div class="option"
+        onclick="answer('records','No regular system',this)">
         I don't have a regular system
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -838,21 +878,26 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
-      <div class="option" onclick="answer('vat','Yes',this)">
+      <div class="option"
+        onclick="answer('vat','Yes',this)">
         Yes
       </div>
 
-      <div class="option" onclick="answer('vat','No',this)">
+      <div class="option"
+        onclick="answer('vat','No',this)">
         No
       </div>
 
-      <div class="option" onclick="answer('vat','Not sure',this)">
+      <div class="option"
+        onclick="answer('vat','Not sure',this)">
         Not sure
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -869,17 +914,21 @@ not jump around vertically.
   </div>
 
   <div class="answer-area">
+
     <div class="options">
 
-      <div class="option" onclick="answer('payroll','Yes',this)">
+      <div class="option"
+        onclick="answer('payroll','Yes',this)">
         Yes
       </div>
 
-      <div class="option" onclick="answer('payroll','No',this)">
+      <div class="option"
+        onclick="answer('payroll','No',this)">
         No
       </div>
 
     </div>
+
   </div>
 
   <div class="navigation">
@@ -895,49 +944,60 @@ not jump around vertically.
 
   <div class="hint">Choose all that apply.</div>
 
-  <div class="options multi" data-key="services">
+  <div class="options multi">
 
-    <div class="option" onclick="toggleMulti(this,'Invoice Preparation')">
+    <div class="option"
+      onclick="toggleMulti(this,'Invoice Preparation')">
       Invoice preparation
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Subcontractor Verification')">
+    <div class="option"
+      onclick="toggleMulti(this,'Subcontractor Verification')">
       Subcontractor verification
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Labour Payment Calculation')">
+    <div class="option"
+      onclick="toggleMulti(this,'Labour Payment Calculation')">
       Labour payment calculation
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Retention Tracking')">
+    <div class="option"
+      onclick="toggleMulti(this,'Retention Tracking')">
       Retention tracking
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'CIS Return Submission')">
+    <div class="option"
+      onclick="toggleMulti(this,'CIS Return Submission')">
       CIS return submission
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'CIS Suffered Submission')">
+    <div class="option"
+      onclick="toggleMulti(this,'CIS Suffered Submission')">
       CIS suffered submission
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Digital Record Keeping')">
+    <div class="option"
+      onclick="toggleMulti(this,'Digital Record Keeping')">
       Digital record keeping
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'VAT Returns')">
+    <div class="option"
+      onclick="toggleMulti(this,'VAT Returns')">
       VAT returns
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Domestic Reverse Charge')">
+    <div class="option"
+      onclick="toggleMulti(this,'Domestic Reverse Charge')">
       Domestic reverse charge
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Payroll')">
+    <div class="option"
+      onclick="toggleMulti(this,'Payroll')">
       Payroll
     </div>
 
-    <div class="option" onclick="toggleMulti(this,'Not sure – I need advice')">
+    <div class="option"
+      onclick="toggleMulti(this,'Not sure – I need advice')">
       Not sure — I need advice
     </div>
 
@@ -956,9 +1016,9 @@ not jump around vertically.
 </section>
 
 
-<!-- ===================================== -->
-<!-- FINISH -->
-<!-- ===================================== -->
+<!-- =====================================
+     FINISH
+===================================== -->
 
 <section class="screen finish-screen" data-screen="finish">
 
@@ -1081,11 +1141,6 @@ function chooseBusiness(value,element){
 
   data.business = value;
 
-  /*
-  Reset branch-specific answers if
-  the customer changes business type.
-  */
-
   data.cis = "";
   data.records = "";
   data.income = "";
@@ -1137,9 +1192,13 @@ function answerSubs(value,element){
   setTimeout(()=>{
 
     if(value === "Yes"){
+
       showScreen("ltd-verify");
+
     }else{
+
       data.verification = "";
+
       showScreen("ltd-records");
     }
 
@@ -1194,7 +1253,7 @@ function nextQuestion(){
 
   const routes = {
 
-    /* Sole trader */
+    /* Sole Trader */
 
     "st-cis":"st-records",
     "st-records":"st-income",
@@ -1202,7 +1261,7 @@ function nextQuestion(){
     "st-mtd":"st-vat",
     "st-vat":"st-services",
 
-    /* Limited company */
+    /* Limited Company */
 
     "ltd-verify":"ltd-records",
     "ltd-records":"ltd-vat",
@@ -1262,7 +1321,7 @@ function buildMessage(){
 
 *CIS:* ${data.cis}
 *Records:* ${data.records}
-*Annual self-employed income:* ${data.income}
+*Annual turnover:* ${data.income}
 *MTD for Income Tax:* ${data.mtd}
 *VAT registered:* ${data.vat}
 
