@@ -38,9 +38,7 @@ body{
   min-height:100dvh;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
   height:78px;
@@ -54,9 +52,13 @@ header{
   background:var(--yellow);
   color:#111;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:0 20px;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px 0 20px;
+}
+
+.brand-text{
+  min-width:0;
 }
 
 .brand-name{
@@ -65,6 +67,7 @@ header{
   line-height:1;
   font-weight:800;
   letter-spacing:.7px;
+  white-space:nowrap;
 }
 
 .brand-tag{
@@ -74,9 +77,15 @@ header{
   font-weight:700;
 }
 
-/* =========================
-   APP
-========================= */
+.brand-logo{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  flex:0 0 auto;
+  margin-left:15px;
+}
+
+/* APP */
 
 #app{
   max-width:600px;
@@ -93,6 +102,8 @@ header{
 .screen.active{
   display:flex;
 }
+
+/* NORMAL QUESTION SCREEN */
 
 .question-screen{
   flex-direction:column;
@@ -179,9 +190,7 @@ header{
   font-weight:800;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+/* NAVIGATION */
 
 .navigation{
   height:76px;
@@ -205,9 +214,7 @@ header{
   color:#bbb;
 }
 
-/* =========================
-   START SCREEN
-========================= */
+/* START SCREEN */
 
 .start-screen{
   flex-direction:column;
@@ -274,9 +281,7 @@ header{
   transform:scale(.995);
 }
 
-/* =========================
-   LONG / MULTI PAGES
-========================= */
+/* LONG / MULTI SELECT */
 
 .long-screen{
   flex-direction:column;
@@ -316,9 +321,7 @@ header{
   margin-top:8px;
 }
 
-/* =========================
-   FINISH
-========================= */
+/* FINISH */
 
 .finish-screen{
   flex-direction:column;
@@ -353,9 +356,7 @@ header{
   line-height:1.55;
 }
 
-/* =========================
-   SMALL PHONES
-========================= */
+/* SMALL PHONES */
 
 @media(max-height:650px){
 
@@ -404,6 +405,15 @@ header{
   .question-area h1{
     font-size:24px;
   }
+
+  .brand-name{
+    font-size:22px;
+  }
+
+  .brand-logo{
+    width:44px;
+    height:44px;
+  }
 }
 </style>
 </head>
@@ -412,16 +422,24 @@ header{
 
 <header>
   <div class="brand">
-    <div class="brand-name">BUILDWISE ACCOUNTING</div>
-    <div class="brand-tag">Built for builders</div>
+
+    <div class="brand-text">
+      <div class="brand-name">BUILDWISE ACCOUNTING</div>
+      <div class="brand-tag">Built for builders</div>
+    </div>
+
+    <img
+      src="buildwise-icon.png"
+      class="brand-logo"
+      alt="Buildwise Accounting"
+    >
+
   </div>
 </header>
 
 <main id="app">
 
-<!-- =====================================
-     START
-===================================== -->
+<!-- START -->
 
 <section class="screen start-screen active" data-screen="start">
 
@@ -430,7 +448,7 @@ header{
     <h1>Tell us about your business.</h1>
 
     <label class="name-label" for="name">
-      What's your name?
+      First, tell us your name
     </label>
 
     <input
@@ -450,9 +468,7 @@ header{
 </section>
 
 
-<!-- =====================================
-     BUSINESS TYPE
-===================================== -->
+<!-- BUSINESS TYPE -->
 
 <section class="screen question-screen" data-screen="business">
 
@@ -461,7 +477,6 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
       <div class="option"
@@ -475,7 +490,6 @@ header{
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -485,9 +499,7 @@ header{
 </section>
 
 
-<!-- =====================================
-     SOLE TRADER
-===================================== -->
+<!-- SOLE TRADER -->
 
 <section class="screen question-screen" data-screen="st-cis">
 
@@ -496,7 +508,6 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
       <div class="option" onclick="answer('cis','Yes',this)">
@@ -512,7 +523,6 @@ header{
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -529,7 +539,6 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
       <div class="option"
@@ -553,7 +562,6 @@ header{
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -570,7 +578,6 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
       <div class="option"
@@ -589,7 +596,6 @@ header{
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -606,26 +612,21 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
-      <div class="option"
-        onclick="answer('mtd','Yes',this)">
+      <div class="option" onclick="answer('mtd','Yes',this)">
         Yes
       </div>
 
-      <div class="option"
-        onclick="answer('mtd','No',this)">
+      <div class="option" onclick="answer('mtd','No',this)">
         No
       </div>
 
-      <div class="option"
-        onclick="answer('mtd','Not sure',this)">
+      <div class="option" onclick="answer('mtd','Not sure',this)">
         Not sure
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -642,26 +643,21 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
-      <div class="option"
-        onclick="answer('vat','Yes',this)">
+      <div class="option" onclick="answer('vat','Yes',this)">
         Yes
       </div>
 
-      <div class="option"
-        onclick="answer('vat','No',this)">
+      <div class="option" onclick="answer('vat','No',this)">
         No
       </div>
 
-      <div class="option"
-        onclick="answer('vat','Not sure',this)">
+      <div class="option" onclick="answer('vat','Not sure',this)">
         Not sure
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -674,63 +670,51 @@ header{
 <section class="screen long-screen" data-screen="st-services">
 
   <h1>What would you like help with?</h1>
-
   <div class="hint">Choose all that apply.</div>
 
   <div class="options multi">
 
-    <div class="option"
-      onclick="toggleMulti(this,'Tax Return')">
+    <div class="option" onclick="toggleMulti(this,'Tax Return')">
       Tax return
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'MTD Registration')">
+    <div class="option" onclick="toggleMulti(this,'MTD Registration')">
       MTD registration
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Quarterly MTD Submissions')">
+    <div class="option" onclick="toggleMulti(this,'Quarterly MTD Submissions')">
       Quarterly MTD submissions
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Digital Record Keeping')">
+    <div class="option" onclick="toggleMulti(this,'Digital Record Keeping')">
       Digital record keeping
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Invoice / Timesheet Preparation')">
+    <div class="option" onclick="toggleMulti(this,'Invoice / Timesheet Preparation')">
       Invoice / timesheet preparation
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'CIS Deduction Tracking')">
+    <div class="option" onclick="toggleMulti(this,'CIS Deduction Tracking')">
       CIS deduction tracking
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Retention Deduction Tracking')">
+    <div class="option" onclick="toggleMulti(this,'Retention Deduction Tracking')">
       Retention deduction tracking
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'VAT Returns')">
+    <div class="option" onclick="toggleMulti(this,'VAT Returns')">
       VAT returns
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Domestic Reverse Charge')">
+    <div class="option" onclick="toggleMulti(this,'Domestic Reverse Charge')">
       Domestic reverse charge
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Expense Tracking')">
+    <div class="option" onclick="toggleMulti(this,'Expense Tracking')">
       Expense tracking
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Not sure – I need advice')">
+    <div class="option" onclick="toggleMulti(this,'Not sure – I need advice')">
       Not sure — I need advice
     </div>
 
@@ -749,9 +733,7 @@ header{
 </section>
 
 
-<!-- =====================================
-     LIMITED COMPANY
-===================================== -->
+<!-- LIMITED COMPANY -->
 
 <section class="screen question-screen" data-screen="ltd-subs">
 
@@ -760,21 +742,17 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
-      <div class="option"
-        onclick="answerSubs('Yes',this)">
+      <div class="option" onclick="answerSubs('Yes',this)">
         Yes
       </div>
 
-      <div class="option"
-        onclick="answerSubs('No',this)">
+      <div class="option" onclick="answerSubs('No',this)">
         No
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -791,31 +769,25 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
-      <div class="option"
-        onclick="answer('verification','Yes',this)">
+      <div class="option" onclick="answer('verification','Yes',this)">
         Yes
       </div>
 
-      <div class="option"
-        onclick="answer('verification','No',this)">
+      <div class="option" onclick="answer('verification','No',this)">
         No
       </div>
 
-      <div class="option"
-        onclick="answer('verification','Sometimes',this)">
+      <div class="option" onclick="answer('verification','Sometimes',this)">
         Sometimes
       </div>
 
-      <div class="option"
-        onclick="answer('verification','Not sure',this)">
+      <div class="option" onclick="answer('verification','Not sure',this)">
         Not sure
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -832,7 +804,6 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
       <div class="option"
@@ -861,7 +832,6 @@ header{
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -878,26 +848,21 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
-      <div class="option"
-        onclick="answer('vat','Yes',this)">
+      <div class="option" onclick="answer('vat','Yes',this)">
         Yes
       </div>
 
-      <div class="option"
-        onclick="answer('vat','No',this)">
+      <div class="option" onclick="answer('vat','No',this)">
         No
       </div>
 
-      <div class="option"
-        onclick="answer('vat','Not sure',this)">
+      <div class="option" onclick="answer('vat','Not sure',this)">
         Not sure
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -914,21 +879,17 @@ header{
   </div>
 
   <div class="answer-area">
-
     <div class="options">
 
-      <div class="option"
-        onclick="answer('payroll','Yes',this)">
+      <div class="option" onclick="answer('payroll','Yes',this)">
         Yes
       </div>
 
-      <div class="option"
-        onclick="answer('payroll','No',this)">
+      <div class="option" onclick="answer('payroll','No',this)">
         No
       </div>
 
     </div>
-
   </div>
 
   <div class="navigation">
@@ -941,63 +902,51 @@ header{
 <section class="screen long-screen" data-screen="ltd-services">
 
   <h1>What would you like help with?</h1>
-
   <div class="hint">Choose all that apply.</div>
 
   <div class="options multi">
 
-    <div class="option"
-      onclick="toggleMulti(this,'Invoice Preparation')">
+    <div class="option" onclick="toggleMulti(this,'Invoice Preparation')">
       Invoice preparation
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Subcontractor Verification')">
+    <div class="option" onclick="toggleMulti(this,'Subcontractor Verification')">
       Subcontractor verification
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Labour Payment Calculation')">
+    <div class="option" onclick="toggleMulti(this,'Labour Payment Calculation')">
       Labour payment calculation
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Retention Tracking')">
+    <div class="option" onclick="toggleMulti(this,'Retention Tracking')">
       Retention tracking
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'CIS Return Submission')">
+    <div class="option" onclick="toggleMulti(this,'CIS Return Submission')">
       CIS return submission
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'CIS Suffered Submission')">
+    <div class="option" onclick="toggleMulti(this,'CIS Suffered Submission')">
       CIS suffered submission
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Digital Record Keeping')">
+    <div class="option" onclick="toggleMulti(this,'Digital Record Keeping')">
       Digital record keeping
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'VAT Returns')">
+    <div class="option" onclick="toggleMulti(this,'VAT Returns')">
       VAT returns
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Domestic Reverse Charge')">
+    <div class="option" onclick="toggleMulti(this,'Domestic Reverse Charge')">
       Domestic reverse charge
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Payroll')">
+    <div class="option" onclick="toggleMulti(this,'Payroll')">
       Payroll
     </div>
 
-    <div class="option"
-      onclick="toggleMulti(this,'Not sure – I need advice')">
+    <div class="option" onclick="toggleMulti(this,'Not sure – I need advice')">
       Not sure — I need advice
     </div>
 
@@ -1016,9 +965,7 @@ header{
 </section>
 
 
-<!-- =====================================
-     FINISH
-===================================== -->
+<!-- FINISH -->
 
 <section class="screen finish-screen" data-screen="finish">
 
@@ -1067,9 +1014,7 @@ let currentScreen = "start";
 let historyStack = [];
 
 
-/* =========================
-   NAVIGATION
-========================= */
+/* NAVIGATION */
 
 function showScreen(name, addHistory=true){
 
@@ -1103,9 +1048,7 @@ function previous(){
 }
 
 
-/* =========================
-   START
-========================= */
+/* START */
 
 function startForm(){
 
@@ -1133,9 +1076,7 @@ document.getElementById("name").addEventListener("keydown",e=>{
 });
 
 
-/* =========================
-   BUSINESS TYPE
-========================= */
+/* BUSINESS TYPE */
 
 function chooseBusiness(value,element){
 
@@ -1167,9 +1108,7 @@ function chooseBusiness(value,element){
 }
 
 
-/* =========================
-   ANSWERS
-========================= */
+/* ANSWERS */
 
 function answer(key,value,element){
 
@@ -1245,23 +1184,17 @@ function clearSelections(){
 }
 
 
-/* =========================
-   ROUTES
-========================= */
+/* ROUTES */
 
 function nextQuestion(){
 
   const routes = {
-
-    /* Sole Trader */
 
     "st-cis":"st-records",
     "st-records":"st-income",
     "st-income":"st-mtd",
     "st-mtd":"st-vat",
     "st-vat":"st-services",
-
-    /* Limited Company */
 
     "ltd-verify":"ltd-records",
     "ltd-records":"ltd-vat",
@@ -1276,9 +1209,7 @@ function nextQuestion(){
 }
 
 
-/* =========================
-   SERVICES
-========================= */
+/* SERVICES */
 
 function finishServices(){
 
@@ -1302,9 +1233,7 @@ function finishServices(){
 }
 
 
-/* =========================
-   WHATSAPP MESSAGE
-========================= */
+/* WHATSAPP MESSAGE */
 
 function buildMessage(){
 
@@ -1358,9 +1287,7 @@ ${data.services.map(service=>"• "+service).join("\n")}`;
 }
 
 
-/* =========================
-   WHATSAPP
-========================= */
+/* WHATSAPP */
 
 function sendWhatsApp(){
 
